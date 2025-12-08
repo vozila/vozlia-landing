@@ -33,6 +33,22 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        position: relative;           /* added */
+        overflow-x: hidden;           /* added */
+      }
+
+      /* very light watermark background */
+      .bg-watermark {
+        position: fixed;
+        inset: 0;
+        background-image: url("/circuit-watermark.jpg"); /* path to your image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.06;                /* adjust strength here (0.03–0.1) */
+        pointer-events: none;
+        z-index: -1;
+        mix-blend-mode: screen;       /* keeps it soft over the gradient */
       }
 
       main {
@@ -262,6 +278,9 @@
     </style>
   </head>
   <body>
+    <!-- watermark layer -->
+    <div class="bg-watermark"></div>
+
     <main>
       <!-- HERO -->
       <div class="hero-wrap">
@@ -271,7 +290,6 @@
         <p class="tagline">Your AI-Powered Partner for Life and Work.</p>
 
         <div class="hero-image">
-          <!-- Make sure this path points to the exact image whose face you like -->
           <img
             src="/vozlia-hero.png"
             alt="Vozlia, a holographic AI assistant emerging from a glowing base"
