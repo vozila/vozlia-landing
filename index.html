@@ -2,12 +2,119 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vozlia – AI-Powered Partner for Life and Work</title>
+    <title>Vozlia – AI Voice Secretary for Calls, Screening & Translation</title>
+
+    <!-- Core meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Vozlia is your AI-powered assistant that screens calls, protects your time, manages conversations, and keeps your life and business running smoothly 24/7."
+      content="Vozlia is your 24/7 AI voice secretary that answers your calls, blocks spam, manages conversations, and even translates real-time calls so your life and business keep running smoothly."
     />
+    <meta
+      name="keywords"
+      content="AI phone answering service, AI voice secretary, AI receptionist, AI call screening, spam call blocker, AI voicemail alternative, virtual phone assistant, AI translation phone service, AI concierge, personal AI secretary"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://vozlia.com/" />
+
+    <!-- Favicon -->
+    <!-- Make sure these files exist in your public root (adjust paths if needed) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Vozlia – AI Voice Secretary for Calls, Screening & Translation"
+    />
+    <meta
+      property="og:description"
+      content="Let Vozlia answer your calls, block spam, handle messages, and even translate live conversations between you and your callers."
+    />
+    <meta property="og:url" content="https://vozlia.com/" />
+    <meta
+      property="og:image"
+      content="https://vozlia.com/vozlia-hero.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Vozlia – AI Voice Secretary for Calls, Screening & Translation"
+    />
+    <meta
+      name="twitter:description"
+      content="Your AI-powered partner that screens calls, protects your time, manages conversations, and translates live calls 24/7."
+    />
+    <meta
+      name="twitter:image"
+      content="https://vozlia.com/vozlia-hero.png"
+    />
+
+    <!-- FAQ Schema for rich results -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Vozlia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vozlia is a 24/7 AI voice secretary that answers your calls, screens spam, takes detailed messages, manages conversations, and can even translate calls in real time so you never miss something important."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Vozlia answer my phone calls for me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Vozlia can pick up your calls, talk to your callers like a real assistant, collect details, understand urgency, and only forward the calls that matter to you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Vozlia block spam and robocalls?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vozlia screens every call by asking who is calling and what it's regarding, automatically filters out spam and telemarketers, and keeps unwanted calls from ever reaching you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Vozlia translate phone calls in real time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When a caller speaks another language, Vozlia can detect it, offer a translated conversation, and act as a live interpreter between you and your caller."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is Vozlia for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vozlia is built for busy professionals, solo founders, small business owners, families, and anyone who wants an AI assistant to handle their calls, protect their time, and keep life and work running smoothly."
+            }
+          }
+        ]
+      }
+    </script>
+
     <style>
       :root {
         --bg-top: #020617;
@@ -28,13 +135,18 @@
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
           "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top, #020617 0, #020617 55%, #000 100%);
+        background: radial-gradient(
+          circle at top,
+          #020617 0,
+          #020617 55%,
+          #000 100%
+        );
         color: var(--text-main);
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        position: relative;           /* added */
-        overflow-x: hidden;           /* added */
+        position: relative; /* added */
+        overflow-x: hidden; /* added */
       }
 
       /* very light watermark background */
@@ -45,10 +157,10 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.06;                /* adjust strength here (0.03–0.1) */
+        opacity: 0.06; /* adjust strength here (0.03–0.1) */
         pointer-events: none;
         z-index: -1;
-        mix-blend-mode: screen;       /* keeps it soft over the gradient */
+        mix-blend-mode: screen; /* keeps it soft over the gradient */
       }
 
       main {
@@ -91,7 +203,12 @@
         overflow: hidden;
         border: 1px solid rgba(34, 211, 238, 0.4);
         box-shadow: 0 0 60px rgba(34, 211, 238, 0.55);
-        background: radial-gradient(circle at top, #020617 0, #020617 60%, #000 100%);
+        background: radial-gradient(
+          circle at top,
+          #020617 0,
+          #020617 60%,
+          #000 100%
+        );
       }
 
       .hero-image img {
@@ -297,10 +414,7 @@
         </div>
 
         <!-- Waitlist form wired to Formspree -->
-        <form
-          action="https://formspree.io/f/xvgeqrlr"
-          method="POST"
-        >
+        <form action="https://formspree.io/f/xvgeqrlr" method="POST">
           <div class="field">
             <label class="sr-only" for="email">Email address</label>
             <input
