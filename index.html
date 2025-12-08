@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Vozlia is your AI-powered assistant that answers calls, books appointments, and follows your playbook 24/7 so you stop missing opportunities."
+      content="Vozlia is your AI-powered assistant that screens calls, protects your time, manages conversations, and keeps your life and business running smoothly 24/7."
     />
     <style>
       :root {
@@ -16,6 +16,8 @@
         --accent-soft: rgba(34, 211, 238, 0.35);
         --text-main: #f9fafb;
         --text-muted: #9ca3af;
+        --card-bg: rgba(15, 23, 42, 0.92);
+        --card-border: rgba(148, 163, 184, 0.35);
       }
 
       * {
@@ -38,14 +40,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 3rem 1.5rem 2rem;
-        text-align: center;
+        padding: 3rem 1.5rem 2.5rem;
       }
 
       .hero-wrap {
         max-width: 720px;
         width: 100%;
+        text-align: center;
+        margin: 0 auto 2.75rem;
       }
 
       h1 {
@@ -170,6 +172,81 @@
         color: #9ca3af;
       }
 
+      /* Classic SaaS feature section */
+
+      .section {
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 1.75rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        margin: 0 0 0.4rem;
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      @media (min-width: 720px) {
+        .feature-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .feature-card {
+        background: var(--card-bg);
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.65);
+        text-align: left;
+      }
+
+      .feature-icon {
+        font-size: 1.4rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .feature-title {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .feature-body {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .feature-body ul {
+        padding-left: 1.1rem;
+        margin: 0.25rem 0 0;
+      }
+
+      .feature-body li {
+        margin-bottom: 0.15rem;
+      }
+
       footer {
         padding: 0.75rem 1.25rem 1.25rem;
         font-size: 0.78rem;
@@ -186,6 +263,7 @@
   </head>
   <body>
     <main>
+      <!-- HERO -->
       <div class="hero-wrap">
         <h1>
           MEET <span class="brand">VOZLIA</span>
@@ -215,13 +293,154 @@
               required
             />
           </div>
-          <button type="submit">Get Started</button>
+          <button type="submit">Join the Waitlist</button>
         </form>
 
         <div class="hint">
           No spam. Just early access and product updates from the Vozlia team.
         </div>
       </div>
+
+      <!-- CLASSIC SAAS FEATURE SECTION -->
+      <section class="section" aria-labelledby="features-title">
+        <div class="section-header">
+          <h2 id="features-title" class="section-title">
+            What Vozlia Can Do for You
+          </h2>
+          <p class="section-subtitle">
+            Vozlia screens your calls, protects your time, manages conversations,
+            and keeps your life and business running smoothly — 24/7.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <!-- Spam & Screening -->
+          <article class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <div class="feature-title">Spam & Screening Assistant</div>
+            <div class="feature-body">
+              Filters every call before it reaches you:
+              <ul>
+                <li>Blocks spam & telemarketers automatically</li>
+                <li>Asks “Who’s calling and what’s this regarding?”</li>
+                <li>Only forwards calls that actually matter</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Reinvented Voicemail -->
+          <article class="feature-card">
+            <div class="feature-icon">📞</div>
+            <div class="feature-title">Voicemail, Reinvented</div>
+            <div class="feature-body">
+              No more beeps. Callers speak with a real assistant:
+              <ul>
+                <li>Collects detailed messages & follow-up info</li>
+                <li>Understands urgency and caller intent</li>
+                <li>Sends clean SMS summaries you’ll actually read</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Concierge for Callers -->
+          <article class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <div class="feature-title">Concierge for Your Callers</div>
+            <div class="feature-body">
+              Turns your number into a concierge line:
+              <ul>
+                <li>Checks your availability and suggests times</li>
+                <li>Shares info only with pre-approved contacts</li>
+                <li>Logs updates like “I’ll be late” so you don’t miss a beat</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Personal Hotline -->
+          <article class="feature-card">
+            <div class="feature-icon">📋</div>
+            <div class="feature-title">Your Personal Hotline</div>
+            <div class="feature-body">
+              Call your own assistant any time:
+              <ul>
+                <li>Daily briefing: weather, calendar, reminders</li>
+                <li>Hands-free lists & reminder management</li>
+                <li>Optional: smart home control by voice</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Family & Safety -->
+          <article class="feature-card">
+            <div class="feature-icon">👨‍👩‍👧‍👦</div>
+            <div class="feature-title">Family & Safety Companion</div>
+            <div class="feature-body">
+              Built for peace of mind:
+              <ul>
+                <li>Emergency relay calls & texts you instantly</li>
+                <li>Optional wellness checks via sensors</li>
+                <li>VIP-only location sharing with strict privacy</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Dating & Social -->
+          <article class="feature-card">
+            <div class="feature-icon">💬</div>
+            <div class="feature-title">Dating & Social Buffer</div>
+            <div class="feature-body">
+              Keep your real number private:
+              <ul>
+                <li>Screens new contacts & filters unwanted calls</li>
+                <li>Handles polite “not available” responses</li>
+                <li>Schedules dates based on your preferences</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Deliveries & Services -->
+          <article class="feature-card">
+            <div class="feature-icon">📦</div>
+            <div class="feature-title">Deliveries & Home Services</div>
+            <div class="feature-body">
+              Let Vozlia handle the front line:
+              <ul>
+                <li>Manages delivery driver check-ins</li>
+                <li>Verifies workers & logs arrival times</li>
+                <li>Optional: unlocks/buzzes in with your rules</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Personal Admin -->
+          <article class="feature-card">
+            <div class="feature-icon">🗂️</div>
+            <div class="feature-title">Personal Admin Assistant</div>
+            <div class="feature-body">
+              Clears routine calls off your plate:
+              <ul>
+                <li>Shares basic info, directions, and status</li>
+                <li>Handles meeting requests & updates</li>
+                <li>Frees you to focus on real work</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Translation -->
+          <article class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <div class="feature-title">Real-Time Translation</div>
+            <div class="feature-body">
+              Never lose a call to language barriers:
+              <ul>
+                <li>Auto-detects caller language</li>
+                <li>Offers live interpreter mode</li>
+                <li>Connects you with customers worldwide</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer>
