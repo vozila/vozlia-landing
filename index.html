@@ -1,455 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vozlia – AI-Powered Partner for Life and Work</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Vozlia is your AI-powered assistant that screens calls, protects your time, manages conversations, and keeps your life and business running smoothly 24/7."
-    />
-    <style>
-      :root {
-        --bg-top: #020617;
-        --bg-bottom: #020617;
-        --accent: #22d3ee;
-        --accent-soft: rgba(34, 211, 238, 0.35);
-        --text-main: #f9fafb;
-        --text-muted: #9ca3af;
-        --card-bg: rgba(15, 23, 42, 0.92);
-        --card-border: rgba(148, 163, 184, 0.35);
+<head>
+  <meta charset="UTF-8" />
+  <title>Vozlia – AI Voice Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050513;
+      --card: #111123;
+      --card-soft: rgba(17, 17, 35, 0.82);
+      --accent: #7b5dff;
+      --accent-soft: rgba(123, 93, 255, 0.2);
+      --accent-strong: #4ed0ff;
+      --text-main: #f7f7ff;
+      --text-muted: #a0a0c0;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Hologram / office-style global background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        /* soft blue glows similar to the image */
+        radial-gradient(circle at 15% 0%, rgba(120, 190, 255, 0.26), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(123, 93, 255, 0.25), transparent 60%),
+
+        /* subtle “floor” grid */
+        repeating-linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 40px
+        ),
+        repeating-linear-gradient(
+          to top,
+          rgba(255, 255, 255, 0.03) 0px,
+          rgba(255, 255, 255, 0.03) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+
+      filter: brightness(0.35) saturate(1.2);
+    }
+
+    /* All page content sits above the hologram background */
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 0.5rem;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(126, 232, 255, 0.6);
+      background: radial-gradient(circle at 30% 0%, #4ed0ff, #7b5dff);
+      box-shadow: 0 0 24px rgba(78, 208, 255, 0.7);
+    }
+
+    .logo-text-main {
+      font-weight: 650;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.92rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at 0 0, rgba(78, 208, 255, 0.25), transparent 60%),
+        rgba(5, 5, 19, 0.7);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3.5rem 0 3.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
       }
+    }
 
-      * {
-        box-sizing: border-box;
+    .hero-copy {
+      max-width: 560px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.16rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(10, 223, 196, 0.09);
+      border: 1px solid rgba(78, 208, 255, 0.42);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9ee9ff;
+      margin-bottom: 0.8rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #4ed0ff;
+      box-shadow: 0 0 8px rgba(78, 208, 255, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1.4rem, 3rem);
+      line-height: 1.08;
+      margin: 0 0 0.9rem;
+    }
+
+    .hero-title span {
+      color: #9ea6ff;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 1.6rem;
+      max-width: 30rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-primary {
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #4ed0ff, #7b5dff);
+      color: #050513;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-primary span.arrow {
+      font-size: 1.05rem;
+    }
+
+    .hero-secondary {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hero-secondary strong {
+      color: #d7d7ff;
+      font-weight: 500;
+    }
+
+    .hero-footnote {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* hero image */
+
+    .hero-visual-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-visual-card {
+      position: relative;
+      padding: 1.4rem 1.4rem 1.1rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 0 0, rgba(78, 208, 255, 0.25), transparent 60%),
+        rgba(5, 5, 19, 0.88);
+      border: 1px solid rgba(126, 232, 255, 0.35);
+      box-shadow: var(--shadow-card);
+      max-width: 420px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-vozlia {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 22px 60px rgba(0, 255, 255, 0.7));
+    }
+
+    .holo-base {
+      position: absolute;
+      inset-inline: 12%;
+      bottom: 10px;
+      height: 5px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 50% 0, rgba(126, 232, 255, 0.95), transparent 65%);
+      opacity: 0.85;
+    }
+
+    /* sections */
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+    }
 
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-          "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top, #020617 0, #020617 55%, #000 100%);
-        color: var(--text-main);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
+    @media (max-width: 680px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
       }
+    }
 
-      main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 1.5rem 2.5rem;
-      }
+    .card {
+      padding: 1rem 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      background: var(--card-soft);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
 
-      .hero-wrap {
-        max-width: 720px;
-        width: 100%;
-        text-align: center;
-        margin: 0 auto 2.75rem;
-      }
+    .card-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ea6ff;
+      margin-bottom: 0.3rem;
+    }
 
-      h1 {
-        margin: 0 0 0.5rem;
-        font-size: clamp(2.3rem, 4vw, 3.1rem);
-        letter-spacing: -0.03em;
-        font-weight: 700;
-      }
+    .card-title {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
 
-      h1 span.brand {
-        font-weight: 800;
-      }
+    .card-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
-      .tagline {
-        margin: 0 auto 1.8rem;
-        font-size: clamp(1.1rem, 2.1vw, 1.4rem);
-        color: var(--text-muted);
-        max-width: 34rem;
-      }
-
-      .hero-image {
-        max-width: 24rem;
-        margin: 0 auto 2.2rem;
-        border-radius: 1.75rem;
-        overflow: hidden;
-        border: 1px solid rgba(34, 211, 238, 0.4);
-        box-shadow: 0 0 60px rgba(34, 211, 238, 0.55);
-        background: radial-gradient(circle at top, #020617 0, #020617 60%, #000 100%);
-      }
-
-      .hero-image img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        max-width: 32rem;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      @media (min-width: 640px) {
-        form {
-          flex-direction: row;
-          align-items: stretch;
-        }
-      }
-
-      .field {
-        position: relative;
-        flex: 1;
-      }
-
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      input[type="email"] {
-        width: 100%;
-        padding: 0.85rem 1rem;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.8);
-        background: rgba(15, 23, 42, 0.9);
-        color: var(--text-main);
-        font-size: 0.95rem;
-        outline: none;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease,
-          background 0.2s ease;
-      }
-
-      input[type="email"]::placeholder {
-        color: #6b7280;
-      }
-
-      input[type="email"]:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 2px var(--accent-soft);
-        background: rgba(15, 23, 42, 0.98);
-      }
-
-      button {
-        padding: 0.85rem 1.8rem;
-        border-radius: 999px;
-        border: none;
-        background: linear-gradient(135deg, #22d3ee, #38bdf8);
-        color: #020617;
-        font-size: 0.95rem;
-        font-weight: 600;
-        cursor: pointer;
-        white-space: nowrap;
-        box-shadow: 0 10px 30px rgba(56, 189, 248, 0.45);
-        transition: background 0.15s ease, transform 0.1s ease,
-          box-shadow 0.15s ease;
-      }
-
-      button:hover {
-        background: linear-gradient(135deg, #06b6d4, #0ea5e9);
-        box-shadow: 0 10px 34px rgba(56, 189, 248, 0.65);
-        transform: translateY(-1px);
-      }
-
-      button:active {
-        transform: translateY(0);
-        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-      }
-
-      .hint {
-        margin-top: 0.75rem;
-        font-size: 0.8rem;
-        color: #9ca3af;
-      }
-
-      /* Classic SaaS feature section */
-
-      .section {
-        width: 100%;
-        max-width: 960px;
-        margin: 0 auto;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 1.75rem;
-      }
-
-      .section-title {
-        font-size: 1.6rem;
-        margin: 0 0 0.4rem;
-        font-weight: 600;
-      }
-
-      .section-subtitle {
-        margin: 0;
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .feature-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-
-      @media (min-width: 720px) {
-        .feature-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
-
-      .feature-card {
-        background: var(--card-bg);
-        border-radius: 1rem;
-        padding: 1rem 1rem 1rem;
-        border: 1px solid var(--card-border);
-        box-shadow: 0 14px 35px rgba(15, 23, 42, 0.65);
-        text-align: left;
-      }
-
-      .feature-icon {
-        font-size: 1.4rem;
-        margin-bottom: 0.35rem;
-      }
-
-      .feature-title {
-        font-size: 0.98rem;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-      }
-
-      .feature-body {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-      }
-
-      .feature-body ul {
-        padding-left: 1.1rem;
-        margin: 0.25rem 0 0;
-      }
-
-      .feature-body li {
-        margin-bottom: 0.15rem;
-      }
-
-      footer {
-        padding: 0.75rem 1.25rem 1.25rem;
-        font-size: 0.78rem;
-        color: #6b7280;
-        text-align: center;
-      }
-
-      footer a {
-        color: #e5e7eb;
-        text-decoration: underline;
-        text-decoration-style: dotted;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <!-- HERO -->
-      <div class="hero-wrap">
-        <h1>
-          MEET <span class="brand">VOZLIA</span>
-        </h1>
-        <p class="tagline">Your AI-Powered Partner for Life and Work.</p>
-
-        <div class="hero-image">
-          <!-- Make sure this path points to the exact image whose face you like -->
-          <img
-            src="/vozlia-hero.png"
-            alt="Vozlia, a holographic AI assistant emerging from a glowing base"
-          />
-        </div>
-
-        <!-- Waitlist form wired to Formspree -->
-        <form
-          action="https://formspree.io/f/xvgeqrlr"
-          method="POST"
-        >
-          <div class="field">
-            <label class="sr-only" for="email">Email address</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Enter your email to join the waitlist"
-              required
-            />
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="shell">
+      <header>
+        <div class="logo-mark">
+          <div class="logo-icon"></div>
+          <div>
+            <div class="logo-text-main">VOZLIA</div>
+            <div class="logo-text-sub">AI Voice Secretary</div>
           </div>
-          <button type="submit">Join the Waitlist</button>
-        </form>
-
-        <div class="hint">
-          No spam. Just early access and product updates from the Vozlia team.
         </div>
-      </div>
-
-      <!-- CLASSIC SAAS FEATURE SECTION -->
-      <section class="section" aria-labelledby="features-title">
-        <div class="section-header">
-          <h2 id="features-title" class="section-title">
-            What Vozlia Can Do for You
-          </h2>
-          <p class="section-subtitle">
-            Vozlia screens your calls, protects your time, manages conversations,
-            and keeps your life and business running smoothly — 24/7.
-          </p>
+        <div class="nav-pill">
+          24/7 AI call handling · Early access
         </div>
+      </header>
 
-        <div class="feature-grid">
-          <!-- Spam & Screening -->
-          <article class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <div class="feature-title">Spam & Screening Assistant</div>
-            <div class="feature-body">
-              Filters every call before it reaches you:
-              <ul>
-                <li>Blocks spam & telemarketers automatically</li>
-                <li>Asks “Who’s calling and what’s this regarding?”</li>
-                <li>Only forwards calls that actually matter</li>
-              </ul>
+      <main>
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                Your always-on voice assistant
+              </div>
+              <h1 class="hero-title">
+                Let an AI <span>answer, screen & translate</span> your calls.
+              </h1>
+              <p class="hero-subtitle">
+                Vozlia is your personal AI secretary that answers your phone,
+                filters spam, handles routine requests and—even translates live
+                conversations—so only the calls that matter reach you.
+              </p>
+
+              <div class="hero-cta-row">
+                <button class="hero-primary">
+                  Join the early access list
+                  <span class="arrow">↗</span>
+                </button>
+                <div class="hero-secondary">
+                  <strong>No app required.</strong> Works over any phone line.
+                </div>
+              </div>
+
+              <div class="hero-footnote">
+                Perfect for busy professionals, solo founders, and families who
+                never want to miss an important call again.
+              </div>
             </div>
-          </article>
 
-          <!-- Reinvented Voicemail -->
-          <article class="feature-card">
-            <div class="feature-icon">📞</div>
-            <div class="feature-title">Voicemail, Reinvented</div>
-            <div class="feature-body">
-              No more beeps. Callers speak with a real assistant:
-              <ul>
-                <li>Collects detailed messages & follow-up info</li>
-                <li>Understands urgency and caller intent</li>
-                <li>Sends clean SMS summaries you’ll actually read</li>
-              </ul>
+            <div class="hero-visual-wrap">
+              <div class="hero-visual-card">
+                <img
+                  src="vozlia-hero.png"
+                  alt="Vozlia AI assistant hologram"
+                  class="hero-vozlia"
+                />
+                <div class="holo-base"></div>
+              </div>
             </div>
-          </article>
+          </div>
+        </section>
 
-          <!-- Concierge for Callers -->
-          <article class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <div class="feature-title">Concierge for Your Callers</div>
-            <div class="feature-body">
-              Turns your number into a concierge line:
-              <ul>
-                <li>Checks your availability and suggests times</li>
-                <li>Shares info only with pre-approved contacts</li>
-                <li>Logs updates like “I’ll be late” so you don’t miss a beat</li>
-              </ul>
+        <!-- FEATURE PREVIEW – you can replace this with your full feature list -->
+        <section class="section">
+          <div class="section-header">
+            <div class="section-title">What Vozlia does for you</div>
+            <div class="section-subtitle">
+              From spam blocking to live translation, Vozlia behaves like a real
+              human assistant who knows your preferences, schedule and
+              priorities.
             </div>
-          </article>
+          </div>
 
-          <!-- Personal Hotline -->
-          <article class="feature-card">
-            <div class="feature-icon">📋</div>
-            <div class="feature-title">Your Personal Hotline</div>
-            <div class="feature-body">
-              Call your own assistant any time:
-              <ul>
-                <li>Daily briefing: weather, calendar, reminders</li>
-                <li>Hands-free lists & reminder management</li>
-                <li>Optional: smart home control by voice</li>
-              </ul>
-            </div>
-          </article>
+          <div class="grid">
+            <article class="card">
+              <div class="card-label">Spam & Screening</div>
+              <div class="card-title">Only the right calls get through</div>
+              <div class="card-body">
+                Vozlia asks who’s calling and why, quietly blocks spam, and
+                forwards VIPs like family, clients, or your boss.
+              </div>
+            </article>
 
-          <!-- Family & Safety -->
-          <article class="feature-card">
-            <div class="feature-icon">👨‍👩‍👧‍👦</div>
-            <div class="feature-title">Family & Safety Companion</div>
-            <div class="feature-body">
-              Built for peace of mind:
-              <ul>
-                <li>Emergency relay calls & texts you instantly</li>
-                <li>Optional wellness checks via sensors</li>
-                <li>VIP-only location sharing with strict privacy</li>
-              </ul>
-            </div>
-          </article>
+            <article class="card">
+              <div class="card-label">Smart Voicemail</div>
+              <div class="card-title">Real conversations, not beeps</div>
+              <div class="card-body">
+                Callers speak with a natural-sounding assistant that asks
+                follow-ups and sends you short, useful summaries.
+              </div>
+            </article>
 
-          <!-- Dating & Social -->
-          <article class="feature-card">
-            <div class="feature-icon">💬</div>
-            <div class="feature-title">Dating & Social Buffer</div>
-            <div class="feature-body">
-              Keep your real number private:
-              <ul>
-                <li>Screens new contacts & filters unwanted calls</li>
-                <li>Handles polite “not available” responses</li>
-                <li>Schedules dates based on your preferences</li>
-              </ul>
-            </div>
-          </article>
+            <article class="card">
+              <div class="card-label">Concierge & Admin</div>
+              <div class="card-title">Coordinate without context switching</div>
+              <div class="card-body">
+                Your assistant can confirm availability, send directions, log
+                requests, and keep your day moving without bothering you.
+              </div>
+            </article>
 
-          <!-- Deliveries & Services -->
-          <article class="feature-card">
-            <div class="feature-icon">📦</div>
-            <div class="feature-title">Deliveries & Home Services</div>
-            <div class="feature-body">
-              Let Vozlia handle the front line:
-              <ul>
-                <li>Manages delivery driver check-ins</li>
-                <li>Verifies workers & logs arrival times</li>
-                <li>Optional: unlocks/buzzes in with your rules</li>
-              </ul>
-            </div>
-          </article>
+            <article class="card">
+              <div class="card-label">Self-Service Hotline</div>
+              <div class="card-title">Call your own AI for updates</div>
+              <div class="card-body">
+                Dial in to hear your day’s briefing, manage tasks, control smart
+                devices and check messages—hands-free.
+              </div>
+            </article>
 
-          <!-- Personal Admin -->
-          <article class="feature-card">
-            <div class="feature-icon">🗂️</div>
-            <div class="feature-title">Personal Admin Assistant</div>
-            <div class="feature-body">
-              Clears routine calls off your plate:
-              <ul>
-                <li>Shares basic info, directions, and status</li>
-                <li>Handles meeting requests & updates</li>
-                <li>Frees you to focus on real work</li>
-              </ul>
-            </div>
-          </article>
+            <article class="card">
+              <div class="card-label">Family & Safety</div>
+              <div class="card-title">Peace of mind, built in</div>
+              <div class="card-body">
+                Emergency relay, wellness check-ins and optional location
+                sharing for trusted contacts keep you and loved ones connected.
+              </div>
+            </article>
 
-          <!-- Translation -->
-          <article class="feature-card">
-            <div class="feature-icon">🌍</div>
-            <div class="feature-title">Real-Time Translation</div>
-            <div class="feature-body">
-              Never lose a call to language barriers:
-              <ul>
-                <li>Auto-detects caller language</li>
-                <li>Offers live interpreter mode</li>
-                <li>Connects you with customers worldwide</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
+            <article class="card">
+              <div class="card-label">Live Translation</div>
+              <div class="card-title">Talk to anyone, any language</div>
+              <div class="card-body">
+                When a caller speaks another language, Vozlia can offer a
+                translated conversation and bridge the call between you in real
+                time.
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
 
-    <footer>
-      © <span id="year"></span> Vozlia Inc. · Questions?
-      <a href="mailto:support@vozlia.com">support@vozlia.com</a>
-    </footer>
+      <footer>
+        <div>© <span id="year"></span> Vozlia. All rights reserved.</div>
+        <div>Early access · Invite-only beta</div>
+      </footer>
+    </div>
+  </div>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear().toString();
+  </script>
+</body>
 </html>
