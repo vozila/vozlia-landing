@@ -109,6 +109,14 @@
               "@type": "Answer",
               "text": "Yes. You control the voice, the tone, the persona, and what NextUp says. You can also clone your own voice so callers hear you greet them when you can't pick up."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get an invite to NextUp?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "NextUp rolls out by referral. Shops already using NextUp can invite new ones directly. If you don't have an invite yet, request access at vozlia.com and we'll reach out when we open slots in your area."
+            }
           }
         ]
       }
@@ -214,6 +222,74 @@
         color: var(--text-main);
         max-width: 38rem;
         line-height: 1.55;
+      }
+
+      .invite-note {
+        margin: 0 auto 1.3rem;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        max-width: 38rem;
+        font-style: italic;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .access-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+        max-width: 26rem;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .access-form input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 0.6rem;
+        border: 1px solid var(--card-border);
+        background: #ffffff;
+        color: var(--text-main);
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.15s ease;
+        font-family: inherit;
+      }
+
+      .access-form input::placeholder {
+        color: #94a3b8;
+      }
+
+      .access-form input:focus {
+        border-color: var(--accent);
+      }
+
+      .form-submit {
+        padding: 0.85rem 1.6rem;
+        border-radius: 999px;
+        border: none;
+        background: var(--text-main);
+        color: #ffffff;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.1s ease;
+        margin-top: 0.4rem;
+      }
+
+      .form-submit:hover {
+        background: #1f2937;
+        transform: translateY(-1px);
       }
 
       .cta-row {
@@ -444,11 +520,18 @@
           cutting.
         </p>
 
+        <p class="invite-note">
+          NextUp rolls out by referral. The shops running it invite the next
+          ones.
+        </p>
+
         <div class="cta-row">
-          <a href="https://portal.vozlia.com" class="cta-primary"
-            >Get NextUp at your shop →</a
+          <a
+            href="mailto:support@vozlia.com?subject=NextUp%20invite%20code"
+            class="cta-primary"
+            >I have an invite code →</a
           >
-          <a href="#contact" class="cta-secondary">Contact us</a>
+          <a href="#request-access" class="cta-secondary">Request access</a>
         </div>
       </div>
 
@@ -592,24 +675,76 @@
         </div>
       </section>
 
-      <!-- CONTACT / CTA -->
-      <section class="section contact-section" id="contact">
-        <h2 class="section-title">Get NextUp at your shop</h2>
-        <p class="section-subtitle" style="margin-bottom: 1.4rem;">
-          Set it up yourself in the owner portal, or reach out — we'll help you
-          launch.
+      <!-- REQUEST ACCESS -->
+      <section class="section contact-section" id="request-access">
+        <h2 class="section-title">Request access</h2>
+        <p class="section-subtitle" style="margin-bottom: 1.6rem;">
+          Tell us about your shop. We'll reach out when we open slots in your
+          area.
         </p>
-        <div class="cta-row">
-          <a href="https://portal.vozlia.com" class="cta-primary"
-            >Open the owner portal →</a
+
+        <form
+          action="https://formspree.io/f/xvgeqrlr"
+          method="POST"
+          class="access-form"
+        >
+          <label class="sr-only" for="shop">Shop name</label>
+          <input
+            id="shop"
+            name="shop"
+            type="text"
+            placeholder="Shop name"
+            required
+          />
+
+          <label class="sr-only" for="city">City</label>
+          <input
+            id="city"
+            name="city"
+            type="text"
+            placeholder="City"
+            required
+          />
+
+          <label class="sr-only" for="phone">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="Best phone to reach you"
+            required
+          />
+
+          <label class="sr-only" for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+
+          <label class="sr-only" for="source"
+            >How did you hear about NextUp?</label
           >
-          <a
-            href="mailto:support@vozlia.com?subject=NextUp%20for%20my%20shop"
-            class="cta-secondary"
-            >Email support@vozlia.com</a
-          >
-        </div>
+          <input
+            id="source"
+            name="source"
+            type="text"
+            placeholder="How did you hear about NextUp? (optional)"
+          />
+
+          <button type="submit" class="form-submit">Request access</button>
+        </form>
+
         <p class="contact-hint">
+          Already have an invite code?
+          <a href="mailto:support@vozlia.com?subject=NextUp%20invite%20code"
+            >Email it to support@vozlia.com</a
+          >.
+        </p>
+
+        <p class="contact-hint" style="margin-top: 0.6rem;">
           NextUp answers your shop's calls with a friendly virtual voice that
           books appointments, runs the walk-in queue, and forwards anything
           that needs you personally.
