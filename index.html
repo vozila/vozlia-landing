@@ -2,23 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vozlia – AI Voice Secretary for Calls, Screening & Translation</title>
+    <title>NextUp by Vozlia — Never Miss a Customer at Your Barbershop</title>
 
     <!-- Core meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Vozlia is your 24/7 AI voice secretary that answers your calls, blocks spam, manages conversations, and even translates real-time calls so your life and business keep running smoothly."
+      content="NextUp is a virtual receptionist built for barbershops and independent barbers. Walk-in queue, appointment booking, every call answered — in your shop's voice."
     />
     <meta
       name="keywords"
-      content="AI phone answering service, AI voice secretary, AI receptionist, AI call screening, spam call blocker, AI voicemail alternative, virtual phone assistant, AI translation phone service, AI concierge, personal AI secretary"
+      content="barbershop walk-in queue, barbershop booking software, barber phone answering, independent barber tools, neighborhood barbershop software, virtual receptionist for barbers"
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://vozlia.com/" />
 
     <!-- Favicon -->
-    <!-- Make sure these files exist in your public root (adjust paths if needed) -->
     <link rel="icon" type="image/x-icon" href="/vozlia_32x32.ico" />
     <link
       rel="icon"
@@ -34,15 +33,15 @@
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Vozlia – AI Voice Secretary for Calls, Screening & Translation"
+      content="NextUp by Vozlia — Never Miss a Customer at Your Barbershop"
     />
     <meta
       property="og:description"
-      content="Let Vozlia answer your calls, block spam, handle messages, and even translate live conversations between you and your callers."
+      content="Walk-in queue, appointment booking, every call answered. Built for barbershops and independent barbers."
     />
     <meta property="og:url" content="https://vozlia.com/" />
     <meta
@@ -54,11 +53,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Vozlia – AI Voice Secretary for Calls, Screening & Translation"
+      content="NextUp by Vozlia — Never Miss a Customer"
     />
     <meta
       name="twitter:description"
-      content="Your AI-powered partner that screens calls, protects your time, manages conversations, and translates live calls 24/7."
+      content="Walk-in queue, appointments, every call answered — built for barbershops and independent barbers."
     />
     <meta
       name="twitter:image"
@@ -73,42 +72,42 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is Vozlia?",
+            "name": "What is NextUp?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Vozlia is a 24/7 AI voice secretary that answers your calls, screens spam, takes detailed messages, manages conversations, and can even translate calls in real time so you never miss something important."
+              "text": "NextUp is a virtual receptionist built for barbershops. It runs your walk-in queue, books appointments, and answers every call 24/7 in a friendly voice you control — so your customers always get through and you stay in the chair."
             }
           },
           {
             "@type": "Question",
-            "name": "Can Vozlia answer my phone calls for me?",
+            "name": "Does NextUp work for independent barbers and one-chair shops?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Vozlia can pick up your calls, talk to your callers like a real assistant, collect details, understand urgency, and only forward the calls that matter to you."
+              "text": "Yes. NextUp is designed for both multi-chair shops and solo barbers. Independent barbers use it to take walk-ins and bookings while they're behind the chair, without missing calls."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Vozlia block spam and robocalls?",
+            "name": "How does the walk-in queue work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Vozlia screens every call by asking who is calling and what it's regarding, automatically filters out spam and telemarketers, and keeps unwanted calls from ever reaching you."
+              "text": "Customers text or call your shop to join the queue. They see their position in real time, get a text when it's their turn, and can ask for a specific barber. You manage the whole queue from your phone."
             }
           },
           {
             "@type": "Question",
-            "name": "Can Vozlia translate phone calls in real time?",
+            "name": "Do my customers need to download an app?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. When a caller speaks another language, Vozlia can detect it, offer a translated conversation, and act as a live interpreter between you and your caller."
+              "text": "No. Customers just text or call your shop's number the way they already do. No app, no signup, no account required."
             }
           },
           {
             "@type": "Question",
-            "name": "Who is Vozlia for?",
+            "name": "Can NextUp sound like my shop?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Vozlia is built for busy professionals, solo founders, small business owners, families, and anyone who wants an AI assistant to handle their calls, protect their time, and keep life and work running smoothly."
+              "text": "Yes. You control the voice, the tone, the persona, and what NextUp says. You can also clone your own voice so callers hear you greet them when you can't pick up."
             }
           }
         ]
@@ -144,11 +143,6 @@
         overflow-x: hidden;
       }
 
-      /* watermark hidden on light theme — it was tuned for dark gradient */
-      .bg-watermark {
-        display: none;
-      }
-
       main {
         flex: 1;
         display: flex;
@@ -164,32 +158,38 @@
         margin: 0 auto 2.75rem;
       }
 
+      .eyebrow {
+        display: block;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
       h1 {
         margin: 0 0 0.5rem;
-        font-size: clamp(2.3rem, 4vw, 3.1rem);
-        letter-spacing: -0.03em;
-        font-weight: 700;
+        font-size: clamp(2.8rem, 5.5vw, 4rem);
+        letter-spacing: -0.04em;
+        font-weight: 800;
+        line-height: 1.05;
       }
 
       h1 span.brand {
-        font-weight: 800;
+        color: var(--accent);
       }
 
       .tagline {
-        margin: 0 auto 1.8rem;
+        margin: 0 auto 1.6rem;
         font-size: clamp(1.1rem, 2.1vw, 1.4rem);
         color: var(--text-muted);
         max-width: 34rem;
       }
 
-      /* Hero photo fades into the page background rather than sitting in
-       * a card-with-rounded-corners. A radial mask keeps the subject
-       * (barber + customer in the chair) fully visible at center while
-       * the edges fade to transparent, so the photo emerges from the
-       * white surface. No border, no box-shadow — the fade IS the edge. */
       .hero-image {
         max-width: 26rem;
-        margin: 0 auto 2.2rem;
+        margin: 0 auto 1.8rem;
       }
 
       .hero-image img {
@@ -208,98 +208,62 @@
         );
       }
 
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        max-width: 32rem;
-        width: 100%;
-        margin: 0 auto;
-      }
-
-      @media (min-width: 640px) {
-        form {
-          flex-direction: row;
-          align-items: stretch;
-        }
-      }
-
-      .field {
-        position: relative;
-        flex: 1;
-      }
-
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-
-      /* Email input — borderless, blends into the page; only a thin bottom
-       * hairline marks the typing area. Focus tightens the hairline to the
-       * accent color. No card / box / pill shape — feels like writing on
-       * the page itself. */
-      input[type="email"] {
-        width: 100%;
-        padding: 0.7rem 0.25rem;
-        border-radius: 0;
-        border: none;
-        border-bottom: 1px solid var(--hairline);
-        background: transparent;
+      .hero-blurb {
+        margin: 0 auto 1.5rem;
+        font-size: 1rem;
         color: var(--text-main);
-        font-size: 0.95rem;
-        outline: none;
-        transition: border-color 0.2s ease;
+        max-width: 38rem;
+        line-height: 1.55;
       }
 
-      input[type="email"]::placeholder {
-        color: #94a3b8;
+      .cta-row {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
       }
 
-      input[type="email"]:focus {
-        border-bottom-color: var(--accent);
-      }
-
-      button {
-        padding: 0.7rem 1.5rem;
+      .cta-primary {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
         border-radius: 999px;
-        border: none;
         background: var(--text-main);
         color: #ffffff;
-        font-size: 0.93rem;
+        font-size: 0.95rem;
         font-weight: 600;
-        cursor: pointer;
-        white-space: nowrap;
+        text-decoration: none;
         transition: background 0.15s ease, transform 0.1s ease;
       }
 
-      button:hover {
+      .cta-primary:hover {
         background: #1f2937;
         transform: translateY(-1px);
       }
 
-      button:active {
-        transform: translateY(0);
+      .cta-secondary {
+        display: inline-block;
+        padding: 0.8rem 1.4rem;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text-main);
+        border: 1px solid var(--card-border);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.15s ease, transform 0.1s ease;
       }
 
-      .hint {
-        margin-top: 0.75rem;
-        font-size: 0.8rem;
-        color: var(--text-muted);
+      .cta-secondary:hover {
+        background: #f8fafc;
+        transform: translateY(-1px);
       }
 
-      /* Classic SaaS feature section */
-
+      /* Sections */
       .section {
         width: 100%;
         max-width: 960px;
-        margin: 0 auto;
+        margin: 0 auto 3rem;
       }
 
       .section-header {
@@ -310,18 +274,70 @@
       .section-title {
         font-size: 1.6rem;
         margin: 0 0 0.4rem;
-        font-weight: 600;
+        font-weight: 700;
+        letter-spacing: -0.02em;
       }
 
       .section-subtitle {
-        margin: 0;
+        margin: 0 auto;
         font-size: 0.95rem;
         color: var(--text-muted);
         max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
       }
 
+      /* Featured card — The Lineup gets full visual weight */
+      .featured-card {
+        background: var(--card-bg);
+        border-radius: 1.25rem;
+        padding: 1.75rem;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .featured-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--accent);
+      }
+
+      .featured-card .feature-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .featured-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        letter-spacing: -0.02em;
+      }
+
+      .featured-subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .featured-bullets {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: var(--text-main);
+      }
+
+      .featured-bullets li {
+        margin-bottom: 0.35rem;
+      }
+
+      /* Standard feature grid */
       .feature-grid {
         display: grid;
         grid-template-columns: 1fr;
@@ -330,43 +346,65 @@
 
       @media (min-width: 720px) {
         .feature-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 960px) {
+        .feature-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
       .feature-card {
         background: var(--card-bg);
         border-radius: 1rem;
-        padding: 1rem 1rem 1rem;
+        padding: 1.1rem 1.1rem 1.2rem;
         border: 1px solid var(--card-border);
-        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
         text-align: left;
       }
 
       .feature-icon {
         font-size: 1.4rem;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.4rem;
       }
 
       .feature-title {
-        font-size: 0.98rem;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.01em;
       }
 
       .feature-body {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-      }
-
-      .feature-body ul {
+        margin: 0;
         padding-left: 1.1rem;
-        margin: 0.25rem 0 0;
+        font-size: 0.9rem;
+        color: var(--text-main);
+        line-height: 1.55;
       }
 
       .feature-body li {
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.2rem;
+      }
+
+      /* Contact section */
+      .contact-section {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid var(--hairline);
+        margin-top: 1rem;
+      }
+
+      .contact-hint {
+        margin-top: 1.4rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.55;
       }
 
       footer {
@@ -375,7 +413,7 @@
         color: var(--text-muted);
         text-align: center;
         border-top: 1px solid var(--hairline);
-        margin-top: 3rem;
+        margin-top: 1rem;
       }
 
       footer a {
@@ -386,16 +424,12 @@
     </style>
   </head>
   <body>
-    <!-- watermark layer -->
-    <div class="bg-watermark"></div>
-
     <main>
       <!-- HERO -->
       <div class="hero-wrap">
-        <h1>
-          MEET <span class="brand">VOZLIA</span>
-        </h1>
-        <p class="tagline">Your AI-Powered Partner for Life and Work.</p>
+        <span class="eyebrow">From Vozlia</span>
+        <h1>NextUp<span class="brand">.</span></h1>
+        <p class="tagline">You're never out of line.</p>
 
         <div class="hero-image">
           <img
@@ -404,202 +438,182 @@
           />
         </div>
 
-        <!-- Waitlist form wired to Formspree -->
-        <form action="https://formspree.io/f/xvgeqrlr" method="POST">
-          <div class="field">
-            <label class="sr-only" for="email">Email address</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="Enter your email to join the waitlist"
-              required
-            />
-          </div>
-          <button type="submit">Join the Waitlist</button>
-        </form>
+        <p class="hero-blurb">
+          The virtual receptionist built for barbershops and independent
+          barbers. Walk-ins, bookings, and every call — handled while you keep
+          cutting.
+        </p>
 
-        <div class="hint">
-          No spam. Just early access and product updates from the Vozlia team.
+        <div class="cta-row">
+          <a href="https://portal.vozlia.com" class="cta-primary"
+            >Get NextUp at your shop →</a
+          >
+          <a href="#contact" class="cta-secondary">Contact us</a>
         </div>
       </div>
 
-      <!-- FOR BUSINESSES — shipped product, used by service businesses today -->
-      <section class="section" aria-labelledby="business-title" style="margin-bottom: 3rem;">
-        <div class="section-header">
-          <h2 id="business-title" class="section-title">
-            For Business Owners
-          </h2>
-          <p class="section-subtitle">
-            Vozlia powers AI receptionists for barbershops, salons, and other small
-            service businesses. Callers book appointments, join walk-in queues, and
-            ask questions; your AI handles it 24/7 in a friendly voice you control.
-            Manage your shop through the Vozlia owner portal.
-          </p>
-        </div>
-
-        <div class="feature-grid" style="grid-template-columns: 1fr;">
-          <article class="feature-card" style="max-width: 720px; margin: 0 auto; text-align: center;">
-            <div class="feature-icon">🪒</div>
-            <div class="feature-title" style="font-size: 1.05rem;">Used by neighborhood shops today</div>
-            <div class="feature-body" style="font-size: 0.92rem;">
-              <p style="margin: 0 0 0.6rem;">
-                Owners connect their staff's Google Calendar, configure their AI agent,
-                and start taking bookings within minutes — no app required for the
-                customers calling in.
-              </p>
-              <p style="margin: 0;">
-                <a
-                  href="https://portal.vozlia.com"
-                  style="display: inline-block; padding: 0.65rem 1.5rem; border-radius: 999px; background: #0f172a; color: #ffffff; font-weight: 600; text-decoration: none;"
-                >
-                  Open the owner portal →
-                </a>
-              </p>
-            </div>
-          </article>
-        </div>
+      <!-- FEATURED: The Lineup -->
+      <section class="section" aria-labelledby="lineup-title">
+        <article class="featured-card">
+          <div class="feature-icon">🪒</div>
+          <div class="featured-title" id="lineup-title">
+            The Lineup — your walk-in queue
+          </div>
+          <div class="featured-subtitle">
+            Customers join your line without standing in it.
+          </div>
+          <ul class="featured-bullets">
+            <li>
+              Customers text or call your shop's number to join the queue — no
+              app, no signup
+            </li>
+            <li>
+              Real-time position updates ("You're 3rd. About 25 minutes.")
+            </li>
+            <li>Auto-text when it's their turn — they walk in, you cut</li>
+            <li>
+              You see the whole queue on your phone — drag to reorder, mark
+              no-shows
+            </li>
+            <li>Customers can ask for a specific barber by name</li>
+            <li>Walk-ins and appointments share the same view</li>
+          </ul>
+        </article>
       </section>
 
-      <!-- CLASSIC SAAS FEATURE SECTION -->
+      <!-- 8 more features -->
       <section class="section" aria-labelledby="features-title">
         <div class="section-header">
           <h2 id="features-title" class="section-title">
-            What Vozlia Can Do for You
+            Everything else NextUp handles
           </h2>
           <p class="section-subtitle">
-            Vozlia screens your calls, protects your time, manages conversations,
-            and keeps your life and business running smoothly — 24/7.
+            Built for the way barbershops actually run — busy hours, repeat
+            customers, walk-ins mixed with bookings.
           </p>
         </div>
 
         <div class="feature-grid">
-          <!-- Spam & Screening -->
-          <article class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <div class="feature-title">Spam & Screening Assistant</div>
-            <div class="feature-body">
-              Filters every call before it reaches you:
-              <ul>
-                <li>Blocks spam & telemarketers automatically</li>
-                <li>Asks “Who’s calling and what’s this regarding?”</li>
-                <li>Only forwards calls that actually matter</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Reinvented Voicemail -->
+          <!-- Every call answered -->
           <article class="feature-card">
             <div class="feature-icon">📞</div>
-            <div class="feature-title">Voicemail, Reinvented</div>
-            <div class="feature-body">
-              No more beeps. Callers speak with a real assistant:
-              <ul>
-                <li>Collects detailed messages & follow-up info</li>
-                <li>Understands urgency and caller intent</li>
-                <li>Sends clean SMS summaries you’ll actually read</li>
-              </ul>
-            </div>
+            <div class="feature-title">Every call, answered</div>
+            <ul class="feature-body">
+              <li>Picks up on the first ring, 24/7</li>
+              <li>Never a busy signal, never a hold</li>
+              <li>Friendly conversation — not a phone tree</li>
+              <li>Takes a message and texts you the gist</li>
+            </ul>
           </article>
 
-          <!-- Concierge for Callers -->
+          <!-- Bookings -->
           <article class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <div class="feature-title">Concierge for Your Callers</div>
-            <div class="feature-body">
-              Turns your number into a concierge line:
-              <ul>
-                <li>Checks your availability and suggests times</li>
-                <li>Shares info only with pre-approved contacts</li>
-                <li>Logs updates like “I’ll be late” so you don’t miss a beat</li>
-              </ul>
-            </div>
+            <div class="feature-icon">📅</div>
+            <div class="feature-title">Bookings on autopilot</div>
+            <ul class="feature-body">
+              <li>Customers book by voice or text</li>
+              <li>Auto-syncs to your Google Calendar</li>
+              <li>Cancel or reschedule by phone</li>
+              <li>Automatic SMS reminders before the appointment</li>
+            </ul>
           </article>
 
-          <!-- Personal Hotline -->
+          <!-- Sounds like your shop -->
           <article class="feature-card">
-            <div class="feature-icon">📋</div>
-            <div class="feature-title">Your Personal Hotline</div>
-            <div class="feature-body">
-              Call your own assistant any time:
-              <ul>
-                <li>Daily briefing: weather, calendar, reminders</li>
-                <li>Hands-free lists & reminder management</li>
-                <li>Optional: smart home control by voice</li>
-              </ul>
-            </div>
+            <div class="feature-icon">🎙️</div>
+            <div class="feature-title">Sounds like your shop</div>
+            <ul class="feature-body">
+              <li>Custom voice that matches your shop's vibe</li>
+              <li>Optional: clone your own voice for the greeting</li>
+              <li>Tone, persona, and word choice you control</li>
+              <li>Updates anytime from the owner portal</li>
+            </ul>
           </article>
 
-          <!-- Family & Safety -->
+          <!-- Bilingual -->
           <article class="feature-card">
-            <div class="feature-icon">👨‍👩‍👧‍👦</div>
-            <div class="feature-title">Family & Safety Companion</div>
-            <div class="feature-body">
-              Built for peace of mind:
-              <ul>
-                <li>Emergency relay calls & texts you instantly</li>
-                <li>Optional wellness checks via sensors</li>
-                <li>VIP-only location sharing with strict privacy</li>
-              </ul>
-            </div>
+            <div class="feature-icon">🌐</div>
+            <div class="feature-title">Bilingual out of the box</div>
+            <ul class="feature-body">
+              <li>English and Spanish supported by default</li>
+              <li>Detects the caller's language automatically</li>
+              <li>Switches mid-conversation when needed</li>
+              <li>More languages on request</li>
+            </ul>
           </article>
 
-          <!-- Dating & Social -->
+          <!-- Smart call routing -->
           <article class="feature-card">
-            <div class="feature-icon">💬</div>
-            <div class="feature-title">Dating & Social Buffer</div>
-            <div class="feature-body">
-              Keep your real number private:
-              <ul>
-                <li>Screens new contacts & filters unwanted calls</li>
-                <li>Handles polite “not available” responses</li>
-                <li>Schedules dates based on your preferences</li>
-              </ul>
-            </div>
+            <div class="feature-icon">🚦</div>
+            <div class="feature-title">Smart call routing</div>
+            <ul class="feature-body">
+              <li>VIPs and regulars route straight to you</li>
+              <li>Press-key options (1 = owner, 2 = booking, etc.)</li>
+              <li>Auto-screens junk and spam</li>
+              <li>Voicemails transcribed and texted</li>
+            </ul>
           </article>
 
-          <!-- Deliveries & Services -->
+          <!-- Owner analytics by voice -->
           <article class="feature-card">
-            <div class="feature-icon">📦</div>
-            <div class="feature-title">Deliveries & Home Services</div>
-            <div class="feature-body">
-              Let Vozlia handle the front line:
-              <ul>
-                <li>Manages delivery driver check-ins</li>
-                <li>Verifies workers & logs arrival times</li>
-                <li>Optional: unlocks/buzzes in with your rules</li>
-              </ul>
-            </div>
+            <div class="feature-icon">📊</div>
+            <div class="feature-title">Analytics by voice</div>
+            <ul class="feature-body">
+              <li>Call your shop, ask "how many bookings today?"</li>
+              <li>Revenue, no-shows, peak hours — by voice</li>
+              <li>Per-barber breakdowns</li>
+              <li>Optional daily morning briefing text</li>
+            </ul>
           </article>
 
-          <!-- Personal Admin -->
+          <!-- Staff & schedules -->
           <article class="feature-card">
-            <div class="feature-icon">🗂️</div>
-            <div class="feature-title">Personal Admin Assistant</div>
-            <div class="feature-body">
-              Clears routine calls off your plate:
-              <ul>
-                <li>Shares basic info, directions, and status</li>
-                <li>Handles meeting requests & updates</li>
-                <li>Frees you to focus on real work</li>
-              </ul>
-            </div>
+            <div class="feature-icon">✂️</div>
+            <div class="feature-title">Staff &amp; schedules</div>
+            <ul class="feature-body">
+              <li>Per-barber hours, days off, vacation</li>
+              <li>Services and prices per barber</li>
+              <li>Staff invites with their own logins</li>
+              <li>Per-barber walk-in preference toggles</li>
+            </ul>
           </article>
 
-          <!-- Translation -->
+          <!-- Neighborhood lookups -->
           <article class="feature-card">
-            <div class="feature-icon">🌍</div>
-            <div class="feature-title">Real-Time Translation</div>
-            <div class="feature-body">
-              Never lose a call to language barriers:
-              <ul>
-                <li>Auto-detects caller language</li>
-                <li>Offers live interpreter mode</li>
-                <li>Connects you with customers worldwide</li>
-              </ul>
-            </div>
+            <div class="feature-icon">🏙️</div>
+            <div class="feature-title">Neighborhood lookups</div>
+            <ul class="feature-body">
+              <li>NYC alt-side parking by ZIP</li>
+              <li>Restaurant &amp; building inspections nearby</li>
+              <li>School closures and street alerts</li>
+              <li>Local info for chatty customers</li>
+            </ul>
           </article>
         </div>
+      </section>
+
+      <!-- CONTACT / CTA -->
+      <section class="section contact-section" id="contact">
+        <h2 class="section-title">Get NextUp at your shop</h2>
+        <p class="section-subtitle" style="margin-bottom: 1.4rem;">
+          Set it up yourself in the owner portal, or reach out — we'll help you
+          launch.
+        </p>
+        <div class="cta-row">
+          <a href="https://portal.vozlia.com" class="cta-primary"
+            >Open the owner portal →</a
+          >
+          <a
+            href="mailto:support@vozlia.com?subject=NextUp%20for%20my%20shop"
+            class="cta-secondary"
+            >Email support@vozlia.com</a
+          >
+        </div>
+        <p class="contact-hint">
+          NextUp answers your shop's calls with a friendly virtual voice that
+          books appointments, runs the walk-in queue, and forwards anything
+          that needs you personally.
+        </p>
       </section>
     </main>
 
@@ -611,7 +625,8 @@
         Questions? <a href="mailto:support@vozlia.com">support@vozlia.com</a>
       </p>
       <p style="margin: 0; color: #6b7280; font-size: 0.72rem;">
-        Vozlia LLC, c/o Registered Agents Inc, 30 N Gould St Ste R, Sheridan, WY 82801
+        Vozlia LLC, c/o Registered Agents Inc, 30 N Gould St Ste R, Sheridan,
+        WY 82801
       </p>
     </footer>
 
@@ -620,5 +635,3 @@
     </script>
   </body>
 </html>
-
-
