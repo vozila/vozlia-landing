@@ -27,13 +27,13 @@
     <meta property="og:title" content="NextUp by Vozlia — The free AI receptionist for your shop" />
     <meta property="og:description" content="Walk-in queue, appointment booking, every call answered. Free forever on your existing number." />
     <meta property="og:url" content="https://vozlia.com/" />
-    <meta property="og:image" content="https://vozlia.com/vozlia-hero.png" />
+    <meta property="og:image" content="https://vozlia.com/vozlia-hero.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NextUp by Vozlia — The free AI receptionist for your shop" />
     <meta name="twitter:description" content="Walk-in queue, appointments, every call answered — free forever on your existing number." />
-    <meta name="twitter:image" content="https://vozlia.com/vozlia-hero.png" />
+    <meta name="twitter:image" content="https://vozlia.com/vozlia-hero.jpg" />
 
     <!-- FAQ Schema -->
     <script type="application/ld+json">
@@ -188,6 +188,20 @@
       }
       .trust-strip span { display: inline-flex; align-items: center; gap: 0.35rem; }
       .trust-strip svg { width: 14px; height: 14px; color: var(--accent); }
+
+      /* Hero photo (barber-shop scene) */
+      .hero-photo {
+        position: relative; width: 100%; border-radius: 1.5rem; overflow: hidden;
+        box-shadow:
+          0 30px 80px rgba(15, 23, 42, 0.18),
+          0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+      .hero-photo img { display: block; width: 100%; height: auto; }
+      .hero-photo::after {
+        content: ""; position: absolute; inset: 0;
+        background: linear-gradient(155deg, transparent 60%, rgba(37, 99, 235, 0.10));
+        pointer-events: none;
+      }
 
       /* Phone mockup */
       .phone-stage { position: relative; display: flex; justify-content: center; }
@@ -587,13 +601,13 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow"><span class="eyebrow-dot"></span> NextUp by Vozlia · For Barbershops & Beauty Pros</span>
-          <h1>The free AI receptionist for your shop. <span class="grad">Never miss a walk-in or a call again.</span></h1>
+          <h1>The Lineup, <span class="grad">on autopilot.</span></h1>
           <p class="hero-sub">
-            Forward your line when you're busy. NextUp answers, runs your walk-in queue, books appointments, and hands everything back to your phone — handled while you keep cutting.
+            An AI receptionist built for barbershops. Answers every call, runs your walk-in queue, and books like a pro — even when your chair is full.
           </p>
           <div class="hero-ctas">
-            <a href="#pricing" class="btn btn-primary btn-lg">Get the free line</a>
-            <a href="#pricing" class="btn btn-ghost btn-lg">See Pro — $9.99/mo</a>
+            <a href="#request" class="btn btn-primary btn-lg">Get started</a>
+            <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
           </div>
           <div class="trust-strip">
             <span><svg viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg> $0 forever</span>
@@ -603,7 +617,60 @@
           </div>
         </div>
 
-        <div class="phone-stage" aria-hidden="true">
+        <div class="hero-photo">
+          <img
+            src="/vozlia-hero.jpg"
+            alt="A barber giving a customer a haircut in a neighborhood shop chair"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- ====== LOGO STRIP ====== -->
+    <div class="logo-strip" id="integrations">
+      <div class="container">
+        <p class="logo-strip-label">Plugs into the tools you already use <span class="pending">Rolling out</span></p>
+        <div class="logo-row">
+          <span class="lg">Booksy</span>
+          <span class="lg">Square Appointments</span>
+          <span class="lg acuity">Acuity</span>
+          <span class="lg">Calendly</span>
+          <span class="lg mindbody">MINDBODY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== HOW IT WORKS ====== -->
+    <section id="how">
+      <div class="container">
+        <div class="sec-head">
+          <p class="sec-eyebrow">How it works on your existing number</p>
+          <h2 class="sec-title">Set it up in 3 minutes. Keep your number.</h2>
+          <p class="sec-sub">No new SIM. No port-out. No hardware. Forward your line when you're busy and NextUp picks up — on a shared line for free, or your own number on Pro.</p>
+        </div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <h3>Forward when you're busy</h3>
+            <p>Use your phone's built-in call-forward (or tap the "I'm Busy" button in the app). Your existing number stays yours.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <h3>NextUp answers free</h3>
+            <p>Free Backup answers on a shared NextUp line. Upgrade to Pro for your own dedicated AI number that callers see on caller-ID.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <h3>Lands in your phone</h3>
+            <p>Walk-in joins the Lineup. Booking syncs to your calendar. Message hits your inbox. You see it all on your phone.</p>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Phone mockup — visual proof of step 3 ("lands in your phone"). -->
+        <div class="phone-stage" aria-hidden="true" style="margin: 3.5rem auto 0;">
           <div class="float-bubble b1">
             <span class="icon-dot">📞</span>
             <span>Call answered<br><span style="font-weight: 500; color: var(--text-muted); font-size: 10px;">Booked a fade for 3:30</span></span>
@@ -661,51 +728,7 @@
             <span>Walk-in joined<br><span style="font-weight: 500; color: var(--text-muted); font-size: 10px;">5th in line · Marcus</span></span>
           </div>
         </div>
-      </div>
-    </header>
 
-    <!-- ====== LOGO STRIP ====== -->
-    <div class="logo-strip" id="integrations">
-      <div class="container">
-        <p class="logo-strip-label">Plugs into the tools you already use <span class="pending">Rolling out</span></p>
-        <div class="logo-row">
-          <span class="lg">Booksy</span>
-          <span class="lg">Square Appointments</span>
-          <span class="lg acuity">Acuity</span>
-          <span class="lg">Calendly</span>
-          <span class="lg mindbody">MINDBODY</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====== HOW IT WORKS ====== -->
-    <section id="how">
-      <div class="container">
-        <div class="sec-head">
-          <p class="sec-eyebrow">How it works on your existing number</p>
-          <h2 class="sec-title">Set it up in 3 minutes. Keep your number.</h2>
-          <p class="sec-sub">No new SIM. No port-out. No hardware. Forward your line when you're busy and NextUp picks up — on a shared line for free, or your own number on Pro.</p>
-        </div>
-        <div class="flow-steps">
-          <div class="flow-step">
-            <div class="flow-num">1</div>
-            <h3>Forward when you're busy</h3>
-            <p>Use your phone's built-in call-forward (or tap the "I'm Busy" button in the app). Your existing number stays yours.</p>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </div>
-          <div class="flow-step">
-            <div class="flow-num">2</div>
-            <h3>NextUp answers free</h3>
-            <p>Free Backup answers on a shared NextUp line. Upgrade to Pro for your own dedicated AI number that callers see on caller-ID.</p>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </div>
-          <div class="flow-step">
-            <div class="flow-num">3</div>
-            <h3>Lands in your phone</h3>
-            <p>Walk-in joins the Lineup. Booking syncs to your calendar. Message hits your inbox. You see it all on your phone.</p>
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </div>
-        </div>
         <p class="moat-note">
           <strong>The free tier is real.</strong> Most "AI receptionists" charge $30-200/mo because they give you a dedicated DID. We share one for the free plan, so $0 is actually $0 — no trial timer, no credit card.
         </p>
