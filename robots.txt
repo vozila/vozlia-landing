@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://vozlia.com/sitemap.xml
+Sitemap: https://portal.vozlia.com/sitemap.xml
