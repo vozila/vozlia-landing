@@ -218,6 +218,77 @@
       .foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:24px;border-top:1px solid #16203a;color:#5b6684;font-size:13px}
       @media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
       @media(max-width:460px){.foot-grid{grid-template-columns:1fr}}
+
+      /* ===== NextUp green brand + restructured sections ===== */
+      :root{--green:#16a34a;--green-2:#22c55e;--green-deep:#065f46;--green-soft:#bbf7d0;--green-grad:linear-gradient(135deg,#15803d,#22c55e)}
+      .blk.green{background:#16a34a;box-shadow:0 8px 22px rgba(21,128,61,.28)}
+      .blk.green>i{background:#eafaf1;color:#16a34a;-webkit-text-stroke:calc(var(--sz,80px)*.028) #16a34a}
+      .btn-nu{background:var(--green-grad);color:#fff;box-shadow:0 10px 26px rgba(21,128,61,.4)}
+      .btn-nu:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(21,128,61,.5)}
+      .kicker.nu{color:var(--green-2)}
+
+      /* first impressions icon row */
+      .icrow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+      .icard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px 22px;text-align:center;transition:.2s}
+      .icard:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(21,128,61,.14);border-color:rgba(134,239,172,.35)}
+      .icard .em{font-size:34px;line-height:1}
+      .icard h3{font-size:17px;margin-top:16px}
+      @media(max-width:760px){.icrow{grid-template-columns:1fr 1fr}}
+      @media(max-width:440px){.icrow{grid-template-columns:1fr}}
+
+      /* Typical vs NextUp comparison */
+      .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
+      .col{border-radius:24px;padding:34px;border:1px solid var(--line)}
+      .col.bad{background:var(--surface)}
+      .col.good{background:linear-gradient(160deg,#0c2417,#123a25);border-color:rgba(134,239,172,.3)}
+      .col .colhead{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+      .col .colhead .t{font-family:var(--serif);font-size:22px;color:var(--text)}
+      .col .tag2{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-left:auto}
+      .col.bad .tag2{color:#94a3b8;background:rgba(148,163,184,.12)}
+      .col.good .tag2{color:#bbf7d0;background:rgba(34,197,94,.16)}
+      .col ul{list-style:none;margin:0;padding:0;display:grid;gap:13px}
+      .col li{display:flex;align-items:flex-start;gap:12px;font-size:15.5px;color:var(--text-2)}
+      .col li .mk{flex:none;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+      .col.bad li .mk{background:rgba(148,163,184,.14);color:#94a3b8}
+      .col.good li{color:#e6f5ec}
+      .col.good li .mk{background:rgba(34,197,94,.2);color:#4ade80}
+      .col .foot2{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-family:var(--serif);font-size:16px}
+      .col.bad .foot2{color:#94a3b8}
+      .col.good .foot2{color:#bbf7d0;border-top-color:rgba(134,239,172,.2)}
+      @media(max-width:760px){.compare{grid-template-columns:1fr}}
+
+      /* "as good as your fades" */
+      .fades{position:relative;overflow:hidden;background:linear-gradient(135deg,#052e16,#15803d 60%,#22c55e);color:#fff;border-radius:28px;padding:56px;box-shadow:0 40px 90px rgba(21,128,61,.35)}
+      .fades::before{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(134,239,172,.5),transparent 70%)}
+      .fades .tag{position:relative;font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#bbf7d0}
+      .fades h2{position:relative;color:#fff;font-size:clamp(26px,3.4vw,38px);margin-top:12px}
+      .fades .sub{position:relative;color:#d7f5e2;font-size:18px;margin-top:14px;max-width:56ch}
+      .fades .flist{position:relative;display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+      .fades .fchip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px;color:#fff}
+      .fades .punch{position:relative;margin-top:30px;font-family:var(--serif);font-size:clamp(20px,2.4vw,27px);color:#fff}
+      @media(max-width:600px){.fades{padding:36px}}
+
+      /* Vozlia umbrella (blue-V) */
+      .umbrella{position:relative;overflow:hidden;background:linear-gradient(160deg,#101a34,#1a2550);border:1px solid var(--line);border-radius:28px;padding:52px;text-align:center}
+      .umbrella .blk{--sz:74px;margin:0 auto 22px}
+      .umbrella h2{color:#fff;font-size:clamp(24px,3vw,34px)}
+      .umbrella .lead{color:#c3cbe0;font-size:17px;margin:14px auto 0;max-width:58ch}
+      .umbrella .verts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0 0}
+      .umbrella .uv{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 16px;font-size:14.5px;color:#c3cbe0;font-weight:600}
+      .umbrella .tagline{margin-top:30px;font-family:var(--serif);font-size:clamp(20px,2.6vw,28px);color:#fff}
+      @media(max-width:600px){.umbrella{padding:36px}}
+
+      /* social proof */
+      .social{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+      .scard{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px}
+      .scard .em{font-size:30px;line-height:1}
+      .scard h3{font-size:22px;margin-top:14px}
+      .scard p{color:var(--text-2);margin-top:10px;font-size:16px;font-family:var(--sans)}
+      @media(max-width:640px){.social{grid-template-columns:1fr}}
+
+      /* one-brain interactive demo embed */
+      .demo-embed{margin-top:38px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -50px rgba(0,0,0,.6);background:#080b16}
+      .demo-embed iframe{display:block;width:100%;height:78vh;min-height:520px;max-height:760px;border:0}
     </style>
   </head>
   <body>
@@ -225,18 +296,18 @@
     <!-- NAV -->
     <header class="nav" id="nav">
       <div class="wrap">
-        <a class="brand" href="/" aria-label="Vozlia home">
-          <span class="blk" style="--sz:38px"><i>V</i></span>
-          <span class="word">Vozlia</span>
+        <a class="brand" href="/" aria-label="NextUp home">
+          <span class="blk green" style="--sz:38px"><i>N</i></span>
+          <span class="word">NextUp</span>
         </a>
         <nav class="nav-links">
-          <a href="#how">How it works</a>
-          <a href="#systems">Systems</a>
-          <a href="#who">Who it's for</a>
-          <a href="#nextup">NextUp</a>
+          <a href="#first">Why NextUp</a>
+          <a href="#features">Features</a>
+          <a href="#compare">Compare</a>
+          <a href="#vozlia">Vozlia</a>
           <a href="/answers/">Answers</a>
         </nav>
-        <a class="btn btn-primary" href="#request">Request access</a>
+        <a class="btn btn-nu" href="#request">Request access</a>
       </div>
     </header>
 
@@ -244,18 +315,18 @@
     <section class="hero">
       <div class="wrap">
         <div>
-          <span class="hero-eyebrow"><span class="dot"></span> The operating system for local business</span>
-          <h1>Answer every call.<br/>Respond to every customer.<br/>Run the whole business <span class="grad-text">from one place.</span></h1>
-          <p class="lede">Vozlia unifies voice, customers, sales, and operations into one platform — with an assistant that ties it all together. Never miss a call. Never lose a customer. Never juggle five apps again.</p>
+          <span class="hero-eyebrow"><span class="dot"></span> Built for neighborhood barbershops</span>
+          <h1>The phone-and-walk-in system built around how barbers <span class="grad-text">actually work.</span></h1>
+          <p class="lede">Give every customer the experience of a professionally run shop—from the first phone call to the moment they walk through the door.</p>
           <div class="cta">
-            <a class="btn btn-primary btn-lg" href="#request">Request access</a>
-            <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+            <a class="btn btn-nu btn-lg" href="#request">Request Access</a>
+            <a class="btn btn-ghost btn-lg" href="#demo">Watch a 2-minute demo</a>
           </div>
           <p class="fine">Answers 24/7 · Keep your number · Live in minutes</p>
         </div>
 
         <div class="stage" aria-hidden="true">
-          <span class="blk float-blk"><i>V</i></span>
+          <span class="blk green float-blk"><i>N</i></span>
           <div class="glass call-card">
             <div class="call-head">
               <div class="call-ico">📞</div>
@@ -276,161 +347,164 @@
     <div class="proof">
       <div class="wrap"><div class="row">
         <span>📞 <b>Never miss a call</b></span>
-        <span>💬 <b>Every channel, one inbox</b></span>
-        <span>📅 <b>Books while you work</b></span>
-        <span>🧠 <b>Remembers every customer</b></span>
-        <span>🇺🇸🇲🇽 <b>English &amp; Spanish</b></span>
+        <span>📱 <b>Walk-ins join from their phone</b></span>
+        <span>🪧 <b>Smart storefront signage</b></span>
+        <span>⏱ <b>Live wait times</b></span>
+        <span>⭐ <b>A shop that feels organized</b></span>
       </div></div>
     </div>
 
-    <!-- THREE-LAYER STORY -->
-    <section id="how">
+    <!-- FIRST IMPRESSIONS -->
+    <section id="first">
       <div class="wrap">
-        <div class="sec-head reveal">
-          <p class="kicker">One platform</p>
-          <h2>How your business runs on Vozlia.</h2>
-          <p>Three simple layers — how customers reach you, how you run the day, and the assistant that holds it all together.</p>
+        <div class="sec-head center reveal">
+          <p class="kicker nu">First impressions</p>
+          <h2>Customers decide in seconds.</h2>
+          <p>First impressions matter. Customers decide within seconds whether a shop feels organized, modern, and worth trusting. NextUp helps neighborhood barbershops deliver that experience before the first haircut begins.</p>
         </div>
-        <div class="layers">
-          <div class="layer reveal">
-            <div>
-              <span class="num">1</span>
-              <h3>Meet every customer, everywhere.</h3>
-              <p class="lp">Calls, texts, your website, Instagram and WhatsApp — all answered, all in one inbox. When you're busy, Vozlia picks up in a voice that sounds like your business, in English or Spanish.</p>
-              <div class="chips"><span class="chip">Phone</span><span class="chip">SMS</span><span class="chip">Website chat</span><span class="chip">Instagram</span><span class="chip">WhatsApp</span></div>
-            </div>
-            <div class="layer-visual"><div class="mock">
-              <div class="mrow"><div class="ic">📞</div><div><div class="mt">Missed call → answered</div><div class="ms">Vozlia picked up in 2 rings</div></div><div class="badge">handled</div></div>
-              <div class="mrow"><div class="ic">💬</div><div><div class="mt">Instagram DM</div><div class="ms">“Are you open Sunday?”</div></div><div class="badge">replied</div></div>
-              <div class="mrow"><div class="ic">🌐</div><div><div class="mt">Website chat</div><div class="ms">Quote request captured</div></div><div class="badge">saved</div></div>
-            </div></div>
-          </div>
-
-          <div class="layer reveal">
-            <div>
-              <span class="num">2</span>
-              <h3>Run the whole operation.</h3>
-              <p class="lp">Customers and their history, appointments and walk-ins, orders and inventory, payments — the day-to-day of running your business, in one place instead of five apps and a notebook.</p>
-              <div class="chips"><span class="chip">Customers</span><span class="chip">Appointments</span><span class="chip">Walk-ins</span><span class="chip">Orders &amp; inventory</span><span class="chip">Payments</span></div>
-            </div>
-            <div class="layer-visual"><div class="mock">
-              <div class="mrow"><div class="ic">📅</div><div><div class="mt">Tue · 3:00 PM — Haircut</div><div class="ms">Marcus R. · returning customer</div></div><div class="badge">booked</div></div>
-              <div class="mrow"><div class="ic">🧾</div><div><div class="mt">Order #1042</div><div class="ms">2 items · paid</div></div><div class="badge">$48</div></div>
-              <div class="mrow"><div class="ic">👥</div><div><div class="mt">Walk-in queue</div><div class="ms">3 waiting · ~15 min</div></div><div class="badge">live</div></div>
-            </div></div>
-          </div>
-
-          <div class="layer reveal">
-            <div>
-              <span class="num">3</span>
-              <h3>An assistant that never clocks out.</h3>
-              <p class="lp">It knows every customer and knows your business — so it answers, books, follows up, reminds, and handles the busywork around the clock. You do the work only you can do.</p>
-              <div class="chips"><span class="chip">Knows every customer</span><span class="chip">Knows your business</span><span class="chip">Automates the busywork</span></div>
-            </div>
-            <div class="layer-visual"><div class="mock">
-              <div class="mrow"><div class="ic">🧠</div><div><div class="mt">“Marcus usually books a fade.”</div><div class="ms">Suggested the right service</div></div><div class="badge">smart</div></div>
-              <div class="mrow"><div class="ic">🔔</div><div><div class="mt">Reminder sent</div><div class="ms">“See you tomorrow at 3!”</div></div><div class="badge">auto</div></div>
-              <div class="mrow"><div class="ic">⭐</div><div><div class="mt">Review request</div><div class="ms">Sent after the visit</div></div><div class="badge">auto</div></div>
-            </div></div>
-          </div>
+        <div class="icrow reveal">
+          <div class="icard"><div class="em">📞</div><h3>Professional phone answering</h3></div>
+          <div class="icard"><div class="em">📱</div><h3>QR walk-in queue</h3></div>
+          <div class="icard"><div class="em">🪧</div><h3>Smart storefront signage</h3></div>
+          <div class="icard"><div class="em">⭐</div><h3>Consistent customer experience</h3></div>
         </div>
       </div>
     </section>
 
-    <!-- BENTO CAPABILITIES -->
-    <section id="systems" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <!-- ONE-BRAIN INTERACTIVE DEMO -->
+    <section id="demo" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
       <div class="wrap">
         <div class="sec-head center reveal">
-          <p class="kicker">The systems every business runs on</p>
-          <h2>Everything in one place.</h2>
+          <p class="kicker nu">See it work</p>
+          <h2>One brain. Every surface.</h2>
+          <p>Watch a customer and barber move through the whole system — sign, phone, Instagram, walk-in line, and app — all connected. Press play, or step through it yourself.</p>
+        </div>
+        <div class="demo-embed">
+          <iframe src="one-brain.html" title="Vozlia — one brain, every surface (interactive demo)" loading="lazy" allow="fullscreen"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPERATIONAL FEATURES -->
+    <section id="features" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="kicker nu">The day-to-day</p>
+          <h2>Never miss another customer.</h2>
+          <p>The phone, the walk-in line, and the front desk — handled, so the chair keeps moving even when your hands are full.</p>
         </div>
         <div class="bento">
-          <div class="cell tall reveal"><span class="blk"><i>V</i></span><h3>Voice</h3><p>Answers every call and text, day or night — books the appointment, takes the message, and never sends anyone to voicemail. The front desk that never sleeps.</p><div class="glowdot"></div></div>
-          <div class="cell reg reveal"><span class="blk"><i>C</i></span><h3>Customers</h3><p>Every customer and conversation, remembered — one profile across phone, text, and social.</p></div>
-          <div class="cell reg reveal"><span class="blk"><i>O</i></span><h3>Operations</h3><p>Booking, walk-ins, orders, inventory, and payments — the moving parts of your day, in one system.</p></div>
-          <div class="cell dark reveal"><div><h3>An assistant that does the busywork.</h3><p>Answering, scheduling, chasing details, keeping everything current — so you can do the work only you can do.</p></div></div>
-          <div class="cell reg reveal"><span class="blk"><i>M</i></span><h3>Marketing</h3><p>Follow-ups, reminders, and review requests that bring people back — automatically, in your voice.</p></div>
-          <div class="cell reg reveal"><span class="blk"><i>I</i></span><h3>Insights</h3><p>Calls, bookings, sales, no-shows — see what's happening at a glance, no reports to build.</p></div>
+          <div class="cell tall reveal"><span class="blk green"><i>Q</i></span><h3>Walk-in Queue</h3><p>Customers scan a QR code and join the line from their phone. The storefront display shows who's up and the live wait — no crowded lobby, no “who's next?”</p><div class="glowdot"></div></div>
+          <div class="cell reg reveal"><span class="blk green"><i>P</i></span><h3>Phone Agent</h3><p>A professional AI receptionist answers every call in seconds, books the appointment, and never sends anyone to voicemail.</p></div>
+          <div class="cell reg reveal"><span class="blk green"><i>B</i></span><h3>Bookings</h3><p>Take appointments by phone, text, or link — NextUp fills the chair, sends reminders, and keeps your day organized.</p></div>
+          <div class="cell dark reveal" style="background:var(--green-grad)"><div><h3>Answered while you're mid-fade.</h3><p>Forward your calls when your hands are full, catch every walk-in, and keep the day running — without dropping your clippers.</p></div></div>
+          <div class="cell reg reveal"><span class="blk green"><i>R</i></span><h3>Call Routing</h3><p>Forward your calls when you're busy — keep your existing number, and let NextUp catch what you'd otherwise miss.</p></div>
+          <div class="cell reg reveal"><span class="blk green"><i>A</i></span><h3>Analytics</h3><p>Calls answered, walk-ins served, bookings, and busy hours — see what's happening at a glance, no reports to build.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- INTEGRATIONS -->
-    <section id="integrations" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <!-- COMPARISON -->
+    <section id="compare">
       <div class="wrap">
         <div class="sec-head center reveal">
-          <p class="kicker">Integrations</p>
-          <h2>Works with the tools you already use.</h2>
-          <p>Vozlia connects to the apps you already run on — no rip-and-replace.</p>
+          <p class="kicker nu">Perception is the product</p>
+          <h2>Why customers choose one barbershop over another.</h2>
+          <p>Two shops can cut hair equally well and still feel like completely different businesses. People decide what kind of shop this is before a word is said.</p>
         </div>
-        <div class="logos reveal">
-          <div class="logo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 8.1h9.6l-.86 11.9a1 1 0 0 1-1 .93H9.06a1 1 0 0 1-1-.93L7.2 8.1z" fill="#95BF47"/><path d="M9.1 8.1V6.9a2.9 2.9 0 0 1 5.8 0v1.2" fill="none" stroke="#5E8E3E" stroke-width="1.6"/><text x="12" y="16.2" font-family="Georgia,serif" font-weight="bold" font-size="8.4" fill="#fff" text-anchor="middle">S</text></svg>
-            <span>Shopify</span>
+        <div class="compare reveal">
+          <div class="col bad">
+            <div class="colhead"><span class="t">Typical Shop</span><span class="tag2">Before</span></div>
+            <ul>
+              <li><span class="mk">✕</span> Phone rings unanswered</li>
+              <li><span class="mk">✕</span> Customers wait outside</li>
+              <li><span class="mk">✕</span> Busy signal</li>
+              <li><span class="mk">✕</span> No idea how long the wait is</li>
+              <li><span class="mk">✕</span> Handwritten queue</li>
+              <li><span class="mk">✕</span> First impression: chaotic</li>
+            </ul>
+            <div class="foot2">Feels chaotic. They don't come back.</div>
           </div>
-          <div class="logo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".28" stop-color="#FA7E1E"/><stop offset=".55" stop-color="#D62976"/><stop offset=".82" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig)"/><rect x="6.4" y="6.4" width="11.2" height="11.2" rx="3.6" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="12" cy="12" r="3.1" fill="none" stroke="#fff" stroke-width="1.7"/><circle cx="16.3" cy="7.7" r="1.15" fill="#fff"/></svg>
-            <span>Instagram</span>
+          <div class="col good">
+            <div class="colhead"><span class="t">NextUp Shop</span><span class="tag2">With NextUp</span></div>
+            <ul>
+              <li><span class="mk">✓</span> Phone answered immediately</li>
+              <li><span class="mk">✓</span> Join the queue before arriving</li>
+              <li><span class="mk">✓</span> Smart storefront display</li>
+              <li><span class="mk">✓</span> Professional greeting</li>
+              <li><span class="mk">✓</span> Live wait time</li>
+              <li><span class="mk">✓</span> First impression: organized</li>
+            </ul>
+            <div class="foot2">Feels legit. People trust it.</div>
           </div>
-          <div class="logo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#25D366"/><path d="M15.7 13.9l-1.9-.8a.7.7 0 0 0-.8.2l-.55.66a.5.5 0 0 1-.6.12 6.1 6.1 0 0 1-2.94-2.94.5.5 0 0 1 .12-.6l.66-.55a.7.7 0 0 0 .2-.8l-.8-1.9a.72.72 0 0 0-.9-.4c-2.05.72-2.6 3.05-1 5.95 1.72 3.05 4.95 4.25 6.95 3.2a.72.72 0 0 0 .31-.92z" fill="#fff"/></svg>
-            <span>WhatsApp</span>
-          </div>
-          <div class="logo">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#635BFF"/><text x="12" y="16.4" font-family="Georgia,serif" font-weight="bold" font-size="13" fill="#fff" text-anchor="middle">S</text></svg>
-            <span>Stripe</span>
-          </div>
-        </div>
-        <p class="int-note">Logos indicate available integrations and are the property of their respective owners. Vozlia is not affiliated with, or endorsed by, them.</p>
-      </div>
-    </section>
-
-    <!-- WHO -->
-    <section id="who">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <p class="kicker">Built for Main Street</p>
-          <h2>One platform that fits your trade.</h2>
-          <p>Vozlia shapes itself to your business — the words, the workflows, and the tools all fit how you actually run. Not a generic tool you bend to fit.</p>
-        </div>
-        <div class="verticals reveal">
-          <span class="vert">Barbershops &amp; salons</span>
-          <span class="vert">Restaurants &amp; cafés</span>
-          <span class="vert">Auto &amp; repair</span>
-          <span class="vert">Retail &amp; boutiques</span>
-          <span class="vert">Clinics &amp; wellness</span>
-          <span class="vert">Home &amp; trade services</span>
-          <span class="vert">Accountants &amp; consultants</span>
         </div>
       </div>
     </section>
 
-    <!-- NEXTUP -->
-    <div class="nextup-wrap" id="nextup">
+    <!-- FADES -->
+    <section id="fades">
       <div class="wrap">
-        <div class="nextup reveal">
-          <div>
-            <p class="tag">For barbershops</p>
-            <h2>Run a barbershop? Start with NextUp.</h2>
-            <p>NextUp is the AI receptionist built for barbershops — it answers the phone and works your walk-in line so the chair keeps moving, even when your hands are full. It's the front door to Vozlia: start here, grow into the full platform when you're ready.</p>
-            <a class="btn btn-primary btn-lg" href="#request">Start with NextUp</a>
+        <div class="fades reveal">
+          <p class="tag">Look like a shop twice your size</p>
+          <h2>Your shop deserves to look as good as your fades.</h2>
+          <p class="sub">Small barbershops shouldn't have to look small. A neighborhood shop starts to feel like a premium destination — running on the TV, tablet, and window screen you already own.</p>
+          <div class="flist">
+            <span class="fchip">Professional phone answering</span>
+            <span class="fchip">Smart digital signage</span>
+            <span class="fchip">Walk-in QR codes</span>
+            <span class="fchip">Modern customer experience</span>
           </div>
-          <div class="nextup-badge"><span class="blk"><i>N</i></span></div>
+          <p class="punch">Enterprise-level technology at a neighborhood-shop budget.</p>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- VOZLIA UMBRELLA -->
+    <section id="vozlia">
+      <div class="wrap">
+        <div class="umbrella reveal">
+          <span class="blk"><i>V</i></span>
+          <p class="kicker" style="color:#a5b4fc">The platform behind NextUp</p>
+          <h2>NextUp is the first Vozlia application.</h2>
+          <p class="lead">Tomorrow, the same platform powers experiences for every kind of local business.</p>
+          <div class="verts">
+            <span class="uv">Restaurant ordering</span>
+            <span class="uv">Retail kiosks</span>
+            <span class="uv">Medical offices</span>
+            <span class="uv">Law firms</span>
+            <span class="uv">Nonprofits</span>
+            <span class="uv">Home services</span>
+          </div>
+          <p class="tagline">One platform. <span class="grad-text">Hundreds of business experiences.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section id="social" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <p class="kicker nu">Built with barbers</p>
+          <h2>Not built in a vacuum.</h2>
+        </div>
+        <div class="social reveal">
+          <div class="scard"><div class="em">💈</div><h3>Designed with neighborhood barbers.</h3><p>Every feature comes from real shops — shaped by how independent barbers actually run their day.</p></div>
+          <div class="scard"><div class="em">💬</div><h3>Built from hundreds of conversations.</h3><p>With independent shop owners who told us what a busy day really looks like.</p></div>
+        </div>
+      </div>
+    </section>
 
     <!-- STEPS -->
     <section id="setup">
       <div class="wrap">
         <div class="sec-head center reveal">
-          <p class="kicker">Live in minutes</p>
+          <p class="kicker nu">Live in minutes</p>
           <h2>Three minutes from sign-up to answered.</h2>
         </div>
         <div class="steps">
           <div class="step reveal"><span class="n">01</span><h3>Sign up, keep your number.</h3><p>No new hardware, no new line. Your number stays yours.</p></div>
           <div class="step reveal"><span class="n">02</span><h3>Forward when you're busy.</h3><p>Flip a switch — or forward only after hours. You're always in control.</p></div>
-          <div class="step reveal"><span class="n">03</span><h3>Vozlia takes it from there.</h3><p>It answers, books, logs the customer, and hands you the outcome. You just get customers.</p></div>
+          <div class="step reveal"><span class="n">03</span><h3>NextUp takes it from there.</h3><p>It answers, books, logs the customer, and hands you the outcome. You just get customers.</p></div>
         </div>
       </div>
     </section>
@@ -439,8 +513,8 @@
     <section id="request" class="request">
       <div class="wrap">
         <div class="sec-head center reveal">
-          <p class="kicker" style="color:#a5b4fc">Early access</p>
-          <h2>Tell us about your business.</h2>
+          <p class="kicker" style="color:#86efac">Request access</p>
+          <h2>Tell us about your shop.</h2>
           <p>We're rolling out by area. Drop your info and we'll reach out the moment we open access near you.</p>
         </div>
         <form class="form reveal" action="https://formspree.io/f/xvgeqrlr" method="POST">
@@ -450,7 +524,7 @@
           <input name="phone" type="tel" placeholder="Best phone to reach you" required />
           <input name="email" type="email" placeholder="Email" required />
           <input name="source" type="text" placeholder="How did you hear about us? (optional)" />
-          <button type="submit" class="btn btn-primary btn-lg">Request access</button>
+          <button type="submit" class="btn btn-nu btn-lg">Request access</button>
         </form>
       </div>
     </section>
@@ -466,8 +540,8 @@
             </a>
             <p>The operating system for local business. Voice, customers, and operations — in one place, with an assistant that ties it all together.</p>
           </div>
-          <div class="foot-col"><h4>Platform</h4><ul>
-            <li><a href="#systems">Systems</a></li><li><a href="#how">How it works</a></li><li><a href="#who">Who it's for</a></li><li><a href="#nextup">NextUp</a></li><li><a href="/answers/">Answers</a></li>
+          <div class="foot-col"><h4>NextUp</h4><ul>
+            <li><a href="#first">Why NextUp</a></li><li><a href="#features">Features</a></li><li><a href="#compare">Compare</a></li><li><a href="#vozlia">Vozlia platform</a></li><li><a href="/answers/">Answers</a></li>
           </ul></div>
           <div class="foot-col"><h4>Company</h4><ul>
             <li><a href="#request">Request access</a></li><li><a href="https://portal.vozlia.com">Operator portal</a></li><li><a href="mailto:hello@vozlia.com">Contact</a></li>
