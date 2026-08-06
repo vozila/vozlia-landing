@@ -43,10 +43,9 @@
   @keyframes brainpulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55);transform:scale(1)}
     40%{transform:scale(1.06)}100%{box-shadow:0 0 0 22px rgba(34,197,94,0);transform:scale(1)}}
 
-  /* stage grid */
-  .stage{display:grid;gap:14px;grid-template-columns:1fr 1fr;grid-template-areas:"sign show" "phone app" "agent app";}
-  @media (min-width:1000px){.stage{grid-template-columns:1.3fr 1.3fr 1fr;grid-template-areas:"sign sign show" "phone agent app" "phone agent app";}}
-  #t-sign{grid-area:sign}#t-show{grid-area:show}#t-phone{grid-area:phone}#t-agent{grid-area:agent}#t-app{grid-area:app}
+  /* stage grid — auto-flow so all 7 tiles lay out cleanly */
+  .stage{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);grid-auto-flow:row dense}
+  @media (min-width:1000px){.stage{grid-template-columns:repeat(3,1fr)}}
 
   .tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px;position:relative;
     opacity:.45;filter:saturate(.7);transition:opacity .4s,filter .4s,box-shadow .4s,transform .4s;display:flex;flex-direction:column;min-width:0}
@@ -55,10 +54,10 @@
     text-transform:uppercase;color:var(--muted);margin-bottom:9px;flex:none}
   .tile .tl .d{width:7px;height:7px;border-radius:50%;background:var(--muted-2);flex:none}
   .tile.active .tl .d{background:var(--acc,var(--live));box-shadow:0 0 8px var(--acc,var(--live))}
-  #t-sign{--acc:var(--brand)}#t-show{--acc:var(--brand)}#t-phone{--acc:var(--live)}#t-agent{--acc:var(--live)}#t-app{--acc:var(--brand-bright)}
+  #t-sign{--acc:var(--brand)}#t-show{--acc:var(--brand)}#t-phone{--acc:var(--live)}#t-agent{--acc:var(--live)}#t-app{--acc:var(--brand-bright)}#t-crm{--acc:var(--live)}#t-happy{--acc:var(--brand)}
 
   .frame{position:relative;flex:1;min-height:0}
-  .screen{position:absolute;inset:0;opacity:0;transition:opacity .45s;pointer-events:none;display:flex;flex-direction:column}
+  .screen{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none;display:flex;flex-direction:column}
   .screen.on{opacity:1;position:relative}
   .pscr .screen{position:absolute}.pscr .screen.on{position:absolute;opacity:1}
   /* comic-style annotation bubbles */
@@ -151,6 +150,17 @@
   .row.flag{border-color:#caa23a;background:rgba(202,162,58,.08)}.row.flag .av{background:#caa23a;color:#1a1405}
   .row .grow{margin-left:auto;text-align:right}
 
+  /* web-confirmation check */
+  .wc-check{width:52px;height:52px;border-radius:50%;background:var(--live);color:#fff;display:grid;place-items:center;font-size:30px;font-weight:800;font-family:var(--fd);box-shadow:0 0 0 6px rgba(22,163,74,.15)}
+
+  /* happy-customer result card */
+  .happycard{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:18px;text-align:center;
+    background:radial-gradient(120% 90% at 50% 0%,#12203f,var(--panel-2));border-radius:10px}
+  .happyface{width:92px;height:92px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.4))}
+  .happycard .stars{font-size:20px;letter-spacing:4px;color:#f5b301}
+  .happycard .quote{font-family:var(--fd);font-weight:800;font-size:15px;line-height:1.25;max-width:200px;letter-spacing:-.01em}
+  .happycard .who{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+
   /* controls */
   .controls{flex:none;background:rgba(8,11,20,.94);backdrop-filter:blur(12px);
     border-top:1px solid var(--line);z-index:40}
@@ -170,19 +180,25 @@
 
   /* mobile spotlight */
   .mtabs{display:none}
+  .surftitle{display:none;text-align:center;font-family:var(--fd);font-weight:800;font-size:23px;letter-spacing:-.02em;color:var(--ink);margin:0 0 14px}
+  .surftitle::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--live-bright);margin-right:9px;vertical-align:middle;transform:translateY(-2px)}
   @media (max-width:760px){
-    .stage{grid-template-columns:1fr!important;grid-template-areas:"sign" "show" "phone" "agent" "app"!important}
+    .brainbar{display:none}
+    .stage{grid-template-columns:1fr!important}
     .tile{opacity:.5}
     .stage.spotlight .tile{display:none}
-    .stage.spotlight .tile.active{display:flex;opacity:1;animation:spotin .45s cubic-bezier(.2,.85,.3,1)}
-    .phonewrap .phone{width:min(178px,66%)}
+    .stage.spotlight .tile.active{display:flex;opacity:1;min-height:64vh;animation:spotin .72s cubic-bezier(.22,.68,.24,1)}
+    .stage.spotlight .tile.active .frame{display:flex;flex-direction:column;justify-content:center}
+    .phonewrap .phone{width:min(210px,74%)}
     .bubble{font-size:12.5px;max-width:82%}
-    .mtabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;margin:0 -2px}
+    .mtabs{display:none}
+    .surftitle{display:block}
+    .stage.spotlight .tile.active .tl{display:none}
     .mtab{flex:none;font-family:var(--fm);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
       background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:7px 11px;cursor:pointer}
     .mtab.on{color:#fff;background:var(--brand);border-color:transparent}
   }
-  @keyframes spotin{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+  @keyframes spotin{from{opacity:0;transform:translateY(22px) scale(.975)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:opacity .001s!important}}
 </style>
 
@@ -198,6 +214,8 @@
   </div>
 
   <div class="mtabs" id="mtabs"></div>
+
+  <h2 class="surftitle" id="surftitle"></h2>
 
   <div class="stage spotlight" id="stage">
     <!-- SMART SIGN -->
@@ -247,6 +265,15 @@
           <div class="callscr"><div class="nb">N</div><div class="who">On the line</div><div class="st">“…2:30 with Bobby, booked.”</div></div></div>
         <div class="screen" data-s="offer"><div class="ph-hdr sms-h"><span class="a">FC</span><div>Fade &amp; Co.<div class="s">SMS</div></div></div>
           <div class="thread sms"><div class="b in">Hey Marcus — Bobby’s open at 11 today. Want it? It’s been a minute 💈</div><div class="b out">yeah book it 🙌</div><div class="book-chip">✓ Booked · 11:00 · Bobby</div></div></div>
+        <div class="screen" data-s="webconfirm"><div class="bookpg" style="align-items:center;justify-content:center;text-align:center;gap:12px">
+          <div class="wc-check">✓</div>
+          <div class="t" style="font-size:16px">You’re in line!</div>
+          <div class="bp-opt bp-walk" style="border-color:var(--live);background:#eefbf2;flex-direction:column;align-items:center;gap:2px;width:100%">
+            <span style="font-size:22px;font-weight:800;color:#0e6b34">You’re #3 in line</span>
+            <span class="mut">~15 min · Fade &amp; Co.</span></div>
+          <div class="book-chip" style="margin-top:0">We’ll text you when you’re up</div></div></div>
+        <div class="screen" data-s="updatetext"><div class="ph-hdr sms-h"><span class="a">FC</span><div>Fade &amp; Co.<div class="s">SMS</div></div></div>
+          <div class="thread sms"><div class="b in">You’re in line 👍 #3, about 15 min.</div><div class="b in">You’re up next — Bobby’s ready for you! 💈</div><div class="book-chip">✓ You’re up · Bobby’s chair</div></div></div>
       </div></div></div>
     </div>
     <!-- AI RECEPTIONIST -->
@@ -276,6 +303,42 @@
         <div class="screen" data-s="filled"><div class="appui"><div class="h"><b>Grow engine</b><span class="pill">chair filled</span></div>
           <div class="tab">Today · Bobby</div>
           <div class="row new"><span class="av">11:00</span><div><div class="nm">Marcus — cut</div><div class="mt">win-back · was idle</div></div></div></div></div>
+        <div class="screen" data-s="assign"><div class="appui"><div class="h"><b>Walk-in line</b><span class="pill">Bobby’s chair</span></div>
+          <div class="row"><span class="av">DA</span><div><div class="nm">Darnell</div><div class="mt">wrapping up · Bobby</div></div></div>
+          <div class="row new"><span class="av">YO</span><div><div class="nm">New walk-in</div><div class="mt">Assigned to you · Bobby</div></div><div class="grow"><div class="mt" style="color:var(--live-bright)">✓ mine</div></div></div></div></div>
+      </div>
+    </div>
+    <!-- CUSTOMER CRM -->
+    <div class="tile" id="t-crm"><div class="tl"><span class="d"></span> Customer CRM</div>
+      <div class="frame">
+        <div class="screen on" data-s="update"><div class="appui"><div class="h"><b>Marcus Reed</b><span class="pill">regular</span></div>
+          <div class="row"><span class="av">MR</span><div><div class="nm">12 visits · since 2023</div><div class="mt">avg every 3 wks · Bobby</div></div></div>
+          <div class="tab">Recent services</div>
+          <div class="row new"><span class="av">✓</span><div><div class="nm">Visit logged · cut + beard</div><div class="mt">today · $43 · +1 loyalty</div></div><div class="grow"><div class="mt" style="color:var(--live-bright)">just added</div></div></div></div></div>
+        <div class="screen" data-s="review"><div class="appui"><div class="h"><b>Marcus Reed</b><span class="pill">regular</span></div>
+          <div class="row"><span class="av">MR</span><div><div class="nm">12 visits · since 2023</div><div class="mt">last · cut + beard · $43</div></div></div>
+          <div class="tab">Follow-up</div>
+          <div class="row new"><span class="av">⭐</span><div><div class="nm">Review request sent</div><div class="mt">by text · just now</div></div><div class="grow"><div class="mt" style="color:var(--live-bright)">★ sent</div></div></div></div></div>
+      </div>
+    </div>
+    <!-- THE RESULT -->
+    <div class="tile" id="t-happy"><div class="tl"><span class="d"></span> The result</div>
+      <div class="frame">
+        <div class="screen on" data-s="idle"><div class="happycard">
+          <svg class="happyface" viewBox="0 0 96 96" aria-hidden="true">
+            <circle cx="48" cy="51" r="33" fill="#e7b48f"/>
+            <path d="M17 46 Q15 20 48 15 Q81 20 79 46 Q71 35 61 34 Q55 26 45 29 Q33 28 28 40 Q22 40 17 46 Z" fill="#171c2b"/>
+            <path d="M16 48 Q13 62 19 71 L23 52 Z" fill="#171c2b" opacity=".55"/>
+            <path d="M80 48 Q83 62 77 71 L73 52 Z" fill="#171c2b" opacity=".55"/>
+            <circle cx="38" cy="50" r="3.3" fill="#20242e"/>
+            <circle cx="58" cy="50" r="3.3" fill="#20242e"/>
+            <path d="M35 62 Q48 75 61 62" fill="none" stroke="#20242e" stroke-width="3.6" stroke-linecap="round"/>
+            <path d="M32 66 Q48 80 64 66 L64 71 Q48 83 32 71 Z" fill="#2a2f3d" opacity=".5"/>
+          </svg>
+          <div class="stars">★★★★★</div>
+          <div class="quote">“Best fade in the city.”</div>
+          <div class="who">— a new regular</div>
+        </div></div>
       </div>
     </div>
   </div>
@@ -299,20 +362,24 @@
 <script>
 (function(){
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var SURF = ['sign','show','phone','agent','app'];
-  var TILE = {sign:'t-sign',show:'t-show',phone:'t-phone',agent:'t-agent',app:'t-app'};
+  var SURF = ['sign','show','phone','agent','app','crm','happy'];
+  var TILE = {sign:'t-sign',show:'t-show',phone:'t-phone',agent:'t-agent',app:'t-app',crm:'t-crm',happy:'t-happy'};
+  var NAMES = {sign:'Smart Sign',show:'Showcase Display',phone:'Customer Phone',agent:'AI Receptionist',app:'NextUp App',crm:'Customer CRM',happy:'The Result'};
 
   // flows: each step merges `set` (surface->screen), lists `active`, caption, optional brain, agent label, notif
   var FLOWS = [
-    {name:'Flow 1 · Walk-in via QR', steps:[
-      {set:{sign:'showcase',show:'idle',phone:'idle',app:'q0'}, active:['sign'], cap:'The smart sign runs your work, hours and live wait — right in the window.', agent:'Standing by', bub:['sign','💈 fresh cuts + live wait']},
-      {set:{}, active:['sign'], cap:'A passer-by sees a short wait and pulls out their phone.', sign:'hl', bub:['sign','👀 only ~15 min? I’m in']},
-      {set:{phone:'scan'}, active:['sign','phone'], cap:'They scan the one QR on the sign.', sign:'hl', bub:['phone','📷 one scan']},
-      {set:{phone:'booking'}, active:['phone'], cap:'One code, two choices — they tap “Join the walk-in line.”', book:true, bub:['phone','✋ taps “Walk-in”']},
-      {set:{phone:'sms'}, active:['phone'], cap:'Booked from the sidewalk — and now they know the wait.', brain:true, notif:['Fade & Co.','You’re in line — #3, ~15 min'], bub:['phone','💬 “You’re #3!”']},
-      {set:{app:'qnew'}, active:['app'], cap:'The barber’s app lights up with the new walk-in — no clipboard.', brain:true, bub:['app','⚡ pops up for the barber']},
-      {set:{show:'queue'}, active:['show'], cap:'The lobby screen keeps the room oriented — no crowding.', brain:true, bub:['show','⏱ wait updates live']},
-      {set:{}, active:['sign','show','phone','agent','app'], cap:'One scan touched every surface — because it’s all one brain.', brain:true, agent:'All in sync', bub:['agent','✅ every surface, in sync']}
+    {name:'Flow 1 · Walk-in', steps:[
+      {set:{sign:'showcase',show:'idle',phone:'booking',app:'q0',crm:'update',happy:'idle'}, active:['sign'], cap:'Your storefront sells for you — live services and the current wait, right in the window.', agent:'Standing by', bub:['sign','💈 Fresh cuts + live wait']},
+      {set:{phone:'booking'}, active:['phone'], cap:'One tap turns a passer-by into a customer — no app, no phone call.', book:true, bub:['phone','✋ Tap “Join the walk-in line”']},
+      {set:{phone:'webconfirm'}, active:['phone'], cap:'Instant proof they have a spot — their exact place in line, confirmed on the spot.', bub:['phone','✓ You’re #3 in line']},
+      {set:{phone:'sms'}, active:['phone'], cap:'The confirmation follows them by text, so the wait never feels like a guess.', brain:true, notif:['Fade & Co.','You’re #3 in line · ~15 min'], bub:['phone','💬 Text confirmation']},
+      {set:{show:'queue'}, active:['show'], cap:'The lobby screen keeps the whole room oriented — nobody crowds the front desk.', brain:true, bub:['show','⏱ Up on the lobby screen']},
+      {set:{app:'qnew'}, active:['app'], cap:'The barber sees the walk-in the second it lands — the paper clipboard is gone.', brain:true, bub:['app','⚡ New walk-in in the app']},
+      {set:{app:'assign'}, active:['app'], cap:'A single tap claims the client — now Bobby owns that relationship.', bub:['app','💈 Bobby takes them']},
+      {set:{phone:'updatetext'}, active:['phone'], cap:'The customer gets pulled back at exactly the right moment — “you’re up.”', brain:true, notif:['Fade & Co.','You’re up next — Bobby’s ready 💈'], bub:['phone','💬 “You’re up with Bobby”']},
+      {set:{crm:'update'}, active:['crm'], cap:'Every visit writes itself into the customer’s history — no notebook, no memory required.', brain:true, bub:['crm','🗂 Saved to their profile']},
+      {set:{crm:'review'}, active:['crm'], cap:'One tap asks for the review while the fresh cut is still turning heads.', brain:true, bub:['crm','⭐ Review request sent']},
+      {set:{happy:'idle'}, active:['happy'], cap:'A first-time walk-in becomes a five-star regular — that’s the whole loop, one brain.', bub:['happy','😄 A happy regular']}
     ]},
     {name:'Flow 2 · Instagram booking', steps:[
       {set:{sign:'showcase',show:'idle',phone:'ig',app:'q0',agent:'idle'}, active:['phone'], cap:'A new customer slides into your Instagram DMs.', agent:'Standing by', bub:['phone','📩 new DM']},
@@ -353,7 +420,7 @@
   var ft=document.getElementById('flowtabs');
   FLOWS.forEach(function(f,i){var b=document.createElement('button');b.className='flowtab'+(i===0?' on':'');b.textContent='Flow '+(i+1);b.onclick=function(){gotoFlow(i);};ft.appendChild(b);});
   var mt=document.getElementById('mtabs');
-  [['sign','Sign'],['show','Display'],['phone','Phone'],['agent','AI agent'],['app','App']].forEach(function(p){
+  [['sign','Sign'],['show','Display'],['phone','Phone'],['agent','AI agent'],['app','App'],['crm','CRM'],['happy','Result']].forEach(function(p){
     var b=document.createElement('button');b.className='mtab';b.dataset.s=p[0];b.textContent=p[1];
     b.onclick=function(){document.querySelectorAll('.mtab').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
       SURF.forEach(function(s){document.getElementById(TILE[s]).classList.toggle('active',s===p[0]);});};
@@ -384,6 +451,7 @@
     document.querySelectorAll('.mtab').forEach(function(x){x.classList.toggle('on', x.dataset.s===step.active[0]);});
     // caption + flow name
     captext.textContent=step.cap; capflow.textContent=FLOWS[fi].name;
+    var st=document.getElementById('surftitle'); if(st){ st.textContent=NAMES[step.active[0]]||''; }
     // dots
     dotsEl.innerHTML=''; FLOWS[fi].steps.forEach(function(_,i){var d=document.createElement('span');d.className='dot'+(i===si?' on':'');dotsEl.appendChild(d);});
     // notif banner
@@ -393,7 +461,7 @@
     if(step.brain && pulse!==false){ brain.classList.remove('pulse'); void brain.offsetWidth; brain.classList.add('pulse'); brainstate.textContent='hand-off · '+step.active.join(' → '); }
     else { brainstate.textContent='syncing every surface'; }
   }
-  function schedule(){ clearTimeout(timer); if(!playing)return; timer=setTimeout(nextStep, 3600); }
+  function schedule(){ clearTimeout(timer); if(!playing)return; timer=setTimeout(nextStep, 5000); }
   function nextStep(){
     if(si < FLOWS[fi].steps.length-1){ si++; }
     else { fi=(fi+1)%FLOWS.length; si=0; document.querySelectorAll('.flowtab').forEach(function(b,i){b.classList.toggle('on',i===fi);}); }
