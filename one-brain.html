@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Vozlia — One Brain, Every Surface</title>
 <style>
   :root{
@@ -173,12 +174,15 @@
     .stage{grid-template-columns:1fr!important;grid-template-areas:"sign" "show" "phone" "agent" "app"!important}
     .tile{opacity:.5}
     .stage.spotlight .tile{display:none}
-    .stage.spotlight .tile.active{display:flex;opacity:1}
+    .stage.spotlight .tile.active{display:flex;opacity:1;animation:spotin .45s cubic-bezier(.2,.85,.3,1)}
+    .phonewrap .phone{width:min(178px,66%)}
+    .bubble{font-size:12.5px;max-width:82%}
     .mtabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;margin:0 -2px}
     .mtab{flex:none;font-family:var(--fm);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
       background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:7px 11px;cursor:pointer}
     .mtab.on{color:#fff;background:var(--brand);border-color:transparent}
   }
+  @keyframes spotin{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:opacity .001s!important}}
 </style>
 
@@ -305,9 +309,9 @@
       {set:{}, active:['sign'], cap:'A passer-by sees a short wait and pulls out their phone.', sign:'hl', bub:['sign','👀 only ~15 min? I’m in']},
       {set:{phone:'scan'}, active:['sign','phone'], cap:'They scan the one QR on the sign.', sign:'hl', bub:['phone','📷 one scan']},
       {set:{phone:'booking'}, active:['phone'], cap:'One code, two choices — they tap “Join the walk-in line.”', book:true, bub:['phone','✋ taps “Walk-in”']},
-      {set:{phone:'sms'}, active:['phone'], cap:'Instant text back: “You’re #3, about 15 minutes.”', brain:true, notif:['Fade & Co.','You’re in line — #3, ~15 min'], bub:['phone','💬 “You’re #3!”']},
+      {set:{phone:'sms'}, active:['phone'], cap:'Booked from the sidewalk — and now they know the wait.', brain:true, notif:['Fade & Co.','You’re in line — #3, ~15 min'], bub:['phone','💬 “You’re #3!”']},
       {set:{app:'qnew'}, active:['app'], cap:'The barber’s app lights up with the new walk-in — no clipboard.', brain:true, bub:['app','⚡ pops up for the barber']},
-      {set:{show:'queue'}, active:['show'], cap:'The lobby display updates: they see themselves in line with a real wait.', brain:true, bub:['show','⏱ wait updates live']},
+      {set:{show:'queue'}, active:['show'], cap:'The lobby screen keeps the room oriented — no crowding.', brain:true, bub:['show','⏱ wait updates live']},
       {set:{}, active:['sign','show','phone','agent','app'], cap:'One scan touched every surface — because it’s all one brain.', brain:true, agent:'All in sync', bub:['agent','✅ every surface, in sync']}
     ]},
     {name:'Flow 2 · Instagram booking', steps:[
@@ -315,7 +319,7 @@
       {set:{}, active:['phone','agent'], cap:'Vozlia reads the DM and checks the calendar — in seconds.', agent:'Reading DM…', bub:['agent','🧠 reading it…']},
       {set:{}, active:['phone','agent'], cap:'It offers real times and books the one they pick — right in the chat.', agent:'Booking 4:30 · Bobby', bub:['agent','🗓 “4:30 with Bobby?”']},
       {set:{phone:'sms'}, active:['phone'], cap:'Confirmation text lands before they leave the app.', brain:true, notif:['Fade & Co.','Booked · 4:30 with Bobby ✂️'], bub:['phone','✅ booked!']},
-      {set:{app:'appt'}, active:['app'], cap:'The booking drops onto Bobby’s calendar in the app — one book of business.', brain:true, bub:['app','⚡ on Bobby’s calendar']},
+      {set:{app:'appt'}, active:['app'], cap:'Straight onto the calendar — one book of business.', brain:true, bub:['app','⚡ on Bobby’s calendar']},
       {set:{}, active:['phone','agent','app'], cap:'DM to booked chair, hands-free. One brain, every channel.', brain:true, agent:'Done', bub:['agent','🙌 hands-free']}
     ]},
     {name:'Flow 3 · AI phone call', steps:[
@@ -331,7 +335,7 @@
       {set:{}, active:['app','agent'], cap:'It matches the right overdue regular to the gap — not a mass blast.', agent:'Matching Marcus…', bub:['agent','🎯 Marcus is overdue']},
       {set:{phone:'offer'}, active:['phone','agent'], cap:'One personal text goes out: “Bobby’s open at 11 — want it?”', agent:'Texting Marcus', notif:['Fade & Co.','Bobby’s open at 11 — want it?'], bub:['phone','💬 “Bobby’s open at 11”']},
       {set:{}, active:['phone'], cap:'“Yeah, book it.” A slow hour just became revenue.', brain:true, bub:['phone','🙌 “book it!”']},
-      {set:{app:'filled'}, active:['app'], cap:'The chair fills in the app — a customer you already earned, brought back.', brain:true, bub:['app','⚡ chair filled']},
+      {set:{app:'filled'}, active:['app'], cap:'Chair filled — a regular you already earned, back.', brain:true, bub:['app','⚡ chair filled']},
       {set:{show:'queue'}, active:['show','app','phone'], cap:'Present, Run, Grow — the same one brain, working every hour.', brain:true, agent:'Chair filled', bub:['show','🔁 slow hour → booked']}
     ]}
   ];
