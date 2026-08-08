@@ -125,6 +125,10 @@
       .hero-rot{display:grid}
       .hero-rot>.slide{grid-area:1/1;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
       .hero-rot>.slide.active{opacity:1;transform:none;pointer-events:auto}
+      /* video-synced reveal: fade the text during QR / dashboard / phone scenes so the video's value shows */
+      .hero-eyebrow,.hero-rot,.hero-scrim{transition:opacity .55s ease}
+      .hero.reveal .hero-rot,.hero.reveal .hero-eyebrow{opacity:0;pointer-events:none}
+      .hero.reveal .hero-scrim{opacity:.38}
 
       /* marquee proof */
       .proof{background:var(--ink-soft);color:#aeb9d4;padding:22px 0;border-top:1px solid rgba(255,255,255,.06)}
@@ -589,15 +593,38 @@
       // reveal on scroll
       const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14});
       document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
-      // responsive hero video: portrait cut on tall/narrow screens, landscape otherwise (loads only one)
-      (function(){var v=document.querySelector('.hero-video');if(!v)return;
-        var portrait=matchMedia('(max-aspect-ratio: 4/5)').matches;
-        v.poster=portrait?'hero-portrait-poster.jpg':'hero-poster.jpg';
-        v.src=portrait?'hero-portrait.mp4':'hero.mp4';
-        v.load();v.play().catch(function(){});
+      // hero: responsive video (portrait/landscape, live-swaps on rotate), synced to the
+      // video timeline — fades the text during QR/board/phone scenes so the value shows,
+      // and matches the rotating message to the scene.
+      (function(){
+        var v=document.querySelector('.hero-video'); if(!v) return;
+        var hero=document.querySelector('.hero');
+        var slides=[].slice.call(document.querySelectorAll('.hero-rot .slide'));
+        var mq=matchMedia('(max-aspect-ratio: 4/5)');
+        // [startSec, hideText(1=value scene), messageIndex]
+        var SCENES={
+          port:[[0,0,0],[5,1,2],[10,1,2],[15,1,1],[20,0,1],[25,1,1],[32,1,3],[39,0,2],[44,0,3]],
+          land:[[0,0,0],[5,1,2],[10,1,2],[15,1,1],[20,0,1],[25,1,2],[30,1,1],[35,0,2],[40,0,3]]
+        };
+        var scenes, curMsg=-1;
+        function setMsg(i){ if(i===curMsg||!slides.length)return; curMsg=i; slides.forEach(function(s,k){s.classList.toggle('active',k===(i%slides.length))}); }
+        function apply(){
+          var portrait=mq.matches; scenes=portrait?SCENES.port:SCENES.land;
+          var want=portrait?'hero-portrait.mp4':'hero.mp4';
+          if((v.currentSrc||v.src||'').indexOf(want)<0){ v.poster=portrait?'hero-portrait-poster.jpg':'hero-poster.jpg'; v.src=want; v.load(); curMsg=-1; }
+          v.play().catch(function(){});
+        }
+        function tick(){
+          if(!scenes)return; var t=v.currentTime, hide=0, msg=0;
+          for(var i=0;i<scenes.length;i++){ if(t>=scenes[i][0]){ hide=scenes[i][1]; msg=scenes[i][2]; } }
+          hero.classList.toggle('reveal', !!hide); setMsg(msg);
+        }
+        apply();
+        v.addEventListener('timeupdate', tick);
+        if(mq.addEventListener) mq.addEventListener('change', apply); else if(mq.addListener) mq.addListener(apply);
+        addEventListener('orientationchange', function(){ setTimeout(apply,250); });
+        addEventListener('resize', function(){ clearTimeout(v._rt); v._rt=setTimeout(apply,300); });
       })();
-      // rotating hero message
-      (function(){var s=document.querySelectorAll('.hero-rot .slide');if(s.length<2)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;setInterval(function(){s[i].classList.remove('active');i=(i+1)%s.length;s[i].classList.add('active');},4800);})();
     </script>
   </body>
 </html>
