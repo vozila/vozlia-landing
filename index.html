@@ -121,6 +121,10 @@
       .hero h1{font-size:clamp(38px,5.2vw,62px)}
       @media(max-width:900px){.hero{min-height:80vh}.hero .wrap{padding:112px 22px 80px}.hero .wrap>div{max-width:100%}}
       @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+      /* rotating hero message */
+      .hero-rot{display:grid}
+      .hero-rot>.slide{grid-area:1/1;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+      .hero-rot>.slide.active{opacity:1;transform:none;pointer-events:auto}
 
       /* marquee proof */
       .proof{background:var(--ink-soft);color:#aeb9d4;padding:22px 0;border-top:1px solid rgba(255,255,255,.06)}
@@ -331,8 +335,28 @@
       <div class="wrap">
         <div>
           <span class="hero-eyebrow"><span class="dot"></span> Built for neighborhood barbershops</span>
-          <h1>The phone-and-walk-in system built around how barbers <span class="grad-text">actually work.</span></h1>
-          <p class="lede">Give every customer the experience of a professionally run shop—from the first phone call to the moment they walk through the door.</p>
+          <div class="hero-rot">
+            <div class="slide active">
+              <h1>The phone-and-walk-in system built around how barbers <span class="grad-text">actually work.</span></h1>
+              <p class="lede">Give every customer the experience of a professionally run shop—from the first call to the chair.</p>
+            </div>
+            <div class="slide">
+              <h1>Never miss <span class="grad-text">another call.</span></h1>
+              <p class="lede">AI Phone Agent — a professional receptionist answers every call in seconds, books the appointment, and never goes to voicemail.</p>
+            </div>
+            <div class="slide">
+              <h1>No crowded lobby. No <span class="grad-text">“who’s next?”</span></h1>
+              <p class="lede">Walk-in Queue — customers scan a QR code and join the line from their phone; the storefront shows who’s up and the live wait.</p>
+            </div>
+            <div class="slide">
+              <h1>A shop that looks as sharp as your <span class="grad-text">fades.</span></h1>
+              <p class="lede">Smart Signage — a clean, always-on storefront display with live wait times and your brand front and center.</p>
+            </div>
+            <div class="slide">
+              <h1>Keep your number. Catch every <span class="grad-text">customer.</span></h1>
+              <p class="lede">Call Routing — forward your calls when you’re busy, keep your existing number, and let NextUp catch what you’d miss.</p>
+            </div>
+          </div>
           <div class="cta">
             <a class="btn btn-nu btn-lg" href="#request">Request Access</a>
             <a class="btn btn-ghost btn-lg" href="#demo">Watch a 2-minute demo</a>
@@ -565,6 +589,8 @@
       // reveal on scroll
       const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14});
       document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+      // rotating hero message
+      (function(){var s=document.querySelectorAll('.hero-rot .slide');if(s.length<2)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;setInterval(function(){s[i].classList.remove('active');i=(i+1)%s.length;s[i].classList.add('active');},4800);})();
     </script>
   </body>
 </html>
