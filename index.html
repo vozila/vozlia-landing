@@ -109,6 +109,19 @@
       @keyframes pulse{50%{opacity:.35;transform:scale(1.5)}}
       @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:10px}.stage{height:390px;margin-top:20px}}
 
+      /* video hero (Booksy-style full-bleed) */
+      .hero{padding:0;min-height:88vh;display:flex;align-items:center}
+      .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+      .hero::before,.hero::after{display:none}
+      .hero-scrim{position:absolute;inset:0;z-index:1;background:
+        linear-gradient(90deg,rgba(6,10,25,.94),rgba(6,10,25,.62) 44%,rgba(6,10,25,.16) 82%),
+        linear-gradient(0deg,rgba(6,10,25,.72),transparent 44%)}
+      .hero .wrap{position:relative;z-index:2;display:block;padding:120px 24px 92px}
+      .hero .wrap>div{max-width:660px}
+      .hero h1{font-size:clamp(38px,5.2vw,62px)}
+      @media(max-width:900px){.hero{min-height:80vh}.hero .wrap{padding:112px 22px 80px}.hero .wrap>div{max-width:100%}}
+      @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+
       /* marquee proof */
       .proof{background:var(--ink-soft);color:#aeb9d4;padding:22px 0;border-top:1px solid rgba(255,255,255,.06)}
       .proof .row{display:flex;flex-wrap:wrap;gap:14px 30px;justify-content:center;align-items:center;font-size:14.5px;font-weight:500}
@@ -313,6 +326,8 @@
 
     <!-- HERO -->
     <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg"><source src="hero.mp4" type="video/mp4"></video>
+      <div class="hero-scrim"></div>
       <div class="wrap">
         <div>
           <span class="hero-eyebrow"><span class="dot"></span> Built for neighborhood barbershops</span>
@@ -323,22 +338,6 @@
             <a class="btn btn-ghost btn-lg" href="#demo">Watch a 2-minute demo</a>
           </div>
           <p class="fine">Answers 24/7 · Keep your number · Live in minutes</p>
-        </div>
-
-        <div class="stage" aria-hidden="true">
-          <span class="blk green float-blk"><i>N</i></span>
-          <div class="glass call-card">
-            <div class="call-head">
-              <div class="call-ico">📞</div>
-              <div><div class="who">Incoming call</div><div class="num">(555) 018‑2245</div></div>
-              <div class="call-live"><span class="pulse"></span> LIVE</div>
-            </div>
-            <div class="bubble">“Hi! Thanks for calling. I can book you in — what day works best?”</div>
-          </div>
-          <div class="glass booked">
-            <div class="ck">✓</div>
-            <div><div class="t">Booked · Tue 3:00 PM</div><div class="s">Haircut · added to calendar · customer saved</div></div>
-          </div>
         </div>
       </div>
     </section>
