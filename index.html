@@ -330,7 +330,7 @@
 
     <!-- HERO -->
     <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg"><source src="hero.mp4" type="video/mp4"></video>
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-poster.jpg"></video>
       <div class="hero-scrim"></div>
       <div class="wrap">
         <div>
@@ -589,6 +589,13 @@
       // reveal on scroll
       const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14});
       document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+      // responsive hero video: portrait cut on tall/narrow screens, landscape otherwise (loads only one)
+      (function(){var v=document.querySelector('.hero-video');if(!v)return;
+        var portrait=matchMedia('(max-aspect-ratio: 4/5)').matches;
+        v.poster=portrait?'hero-portrait-poster.jpg':'hero-poster.jpg';
+        v.src=portrait?'hero-portrait.mp4':'hero.mp4';
+        v.load();v.play().catch(function(){});
+      })();
       // rotating hero message
       (function(){var s=document.querySelectorAll('.hero-rot .slide');if(s.length<2)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;setInterval(function(){s[i].classList.remove('active');i=(i+1)%s.length;s[i].classList.add('active');},4800);})();
     </script>
