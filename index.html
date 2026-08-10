@@ -114,17 +114,33 @@
       .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
       .hero::before,.hero::after{display:none}
       .hero-scrim{position:absolute;inset:0;z-index:1;background:
-        linear-gradient(90deg,rgba(6,10,25,.94),rgba(6,10,25,.62) 44%,rgba(6,10,25,.16) 82%),
-        linear-gradient(0deg,rgba(6,10,25,.72),transparent 44%)}
-      .hero .wrap{position:relative;z-index:2;display:block;padding:120px 24px 92px}
-      .hero .wrap>div{max-width:660px}
-      .hero h1{font-size:clamp(38px,5.2vw,62px)}
+        linear-gradient(90deg,rgba(6,10,25,.93) 0%,rgba(6,10,25,.74) 30%,rgba(6,10,25,.4) 56%,rgba(6,10,25,.08) 84%),
+        linear-gradient(0deg,rgba(6,10,25,.55),transparent 46%),
+        radial-gradient(120% 90% at 12% 50%,rgba(6,10,25,.35),transparent 60%)}
+      .hero .wrap{position:relative;z-index:2;display:block;padding:118px 24px 88px}
+      .hero .wrap>div{max-width:600px}
+      .hero h1{font-size:clamp(34px,4.6vw,54px)}
+      .hero .lede{max-width:46ch}
       @media(max-width:900px){.hero{min-height:80vh}.hero .wrap{padding:112px 22px 80px}.hero .wrap>div{max-width:100%}}
       @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
       /* rotating hero message */
       .hero-rot{display:grid}
       .hero-rot>.slide{grid-area:1/1;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
       .hero-rot>.slide.active{opacity:1;transform:none;pointer-events:auto}
+      /* portrait: compact copy anchored to the bottom over a bottom-up gradient, so the top
+         ~60% of the video (QR / board / phone) stays clear. no text-hiding = never blank. */
+      @media(max-aspect-ratio:4/5){
+        .hero{align-items:flex-end}
+        .hero .wrap{padding-top:56px;padding-bottom:30px}
+        .hero .wrap>div{max-width:100%}
+        .hero-eyebrow{display:none}
+        .hero h1{font-size:clamp(27px,7vw,37px)}
+        .hero .lede{font-size:14.5px;margin-top:10px}
+        .hero .cta{margin-top:16px;gap:10px}
+        .hero .cta .btn-ghost{display:none}
+        .hero .fine{display:none}
+        .hero-scrim{background:linear-gradient(0deg,rgba(6,10,25,.97) 0%,rgba(6,10,25,.76) 24%,rgba(6,10,25,.16) 52%,transparent 70%)}
+      }
 
       /* marquee proof */
       .proof{background:var(--ink-soft);color:#aeb9d4;padding:22px 0;border-top:1px solid rgba(255,255,255,.06)}
@@ -350,7 +366,7 @@
             </div>
             <div class="slide">
               <h1>A shop that looks as sharp as your <span class="grad-text">fades.</span></h1>
-              <p class="lede">Smart Signage — a clean, always-on storefront display with live wait times and your brand front and center.</p>
+              <p class="lede">NextUp Showcase — a clean, always-on storefront display with live wait times and your brand front and center. Design it, tell it, show it: manage it directly from ChatGPT.</p>
             </div>
             <div class="slide">
               <h1>Keep your number. Catch every <span class="grad-text">customer.</span></h1>
@@ -471,6 +487,7 @@
           <p class="tag">Look like a shop twice your size</p>
           <h2>Your shop deserves to look as good as your fades.</h2>
           <p class="sub">Small barbershops shouldn't have to look small. A neighborhood shop starts to feel like a premium destination — running on the TV, tablet, and window screen you already own.</p>
+          <p class="sub"><strong>Design it. Tell it. Show it.</strong> NextUp Showcase is AI-powered display management — create, customize, and publish your storefront screen directly from ChatGPT. Describe the look; it's live in seconds.</p>
           <div class="flist">
             <span class="fchip">Professional phone answering</span>
             <span class="fchip">Smart digital signage</span>
@@ -589,15 +606,23 @@
       // reveal on scroll
       const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.14});
       document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
-      // responsive hero video: portrait cut on tall/narrow screens, landscape otherwise (loads only one)
-      (function(){var v=document.querySelector('.hero-video');if(!v)return;
-        var portrait=matchMedia('(max-aspect-ratio: 4/5)').matches;
-        v.poster=portrait?'hero-portrait-poster.jpg':'hero-poster.jpg';
-        v.src=portrait?'hero-portrait.mp4':'hero.mp4';
-        v.load();v.play().catch(function(){});
+      // hero: pick the portrait or landscape video by orientation (once; re-pick only on a
+      // real orientation flip). Dead simple — no scroll/scene logic that can blank the video.
+      (function(){
+        var v=document.querySelector('.hero-video'); if(!v) return;
+        var mq=matchMedia('(max-aspect-ratio: 4/5)'), cur=null;
+        function pick(){ var p=mq.matches; if(p===cur)return; cur=p;
+          v.poster=p?'hero-portrait-poster.jpg':'hero-poster.jpg';
+          v.src=p?'hero-portrait.mp4':'hero.mp4'; v.load(); v.play().catch(function(){});
+        }
+        pick();
+        if(mq.addEventListener) mq.addEventListener('change', pick); else if(mq.addListener) mq.addListener(pick);
       })();
-      // rotating hero message
-      (function(){var s=document.querySelectorAll('.hero-rot .slide');if(s.length<2)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;var i=0;setInterval(function(){s[i].classList.remove('active');i=(i+1)%s.length;s[i].classList.add('active');},4800);})();
+      // rotating hero message (simple timer)
+      (function(){ var s=[].slice.call(document.querySelectorAll('.hero-rot .slide'));
+        if(s.length<2||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+        var i=0; setInterval(function(){ s[i].classList.remove('active'); i=(i+1)%s.length; s[i].classList.add('active'); },5000);
+      })();
     </script>
   </body>
 </html>
