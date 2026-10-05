@@ -468,7 +468,9 @@
           <h2>Tell us about your shop.</h2>
           <p>We're rolling out by area. Drop your info and we'll reach out the moment we open access near you.</p>
         </div>
-        <form class="form reveal" action="https://formspree.io/f/xvgeqrlr" method="POST">
+        <form class="form reveal" action="https://portal.vozlia.com/api/public/setup-requests" method="POST">
+          <!-- Honeypot: hidden from people, so only a bot fills it. Keep the name "website". -->
+          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" value="" /></label></div>
           <input name="business" type="text" placeholder="Business name" required />
           <input name="chairs" type="text" placeholder="How many barber chairs?" required />
           <input name="city" type="text" placeholder="City" required />
@@ -477,6 +479,7 @@
           <input name="source" type="text" placeholder="How did you hear about us? (optional)" />
           <button type="submit" class="btn btn-nu btn-lg">Get NextUp in your shop</button>
         </form>
+        <p class="reveal" style="text-align:center;margin:18px 0 0;color:var(--text-2)">Ready to start now? <a href="https://portal.vozlia.com/start" style="color:#86efac;text-decoration:underline">Set up your shop yourself</a></p>
       </div>
     </section>
 
