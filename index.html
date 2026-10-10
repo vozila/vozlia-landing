@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>NextUp — The live walk-in queue for barbershops</title>
+    <title>Join The Line — The live walk-in queue for barbershops</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="NextUp gives your barbershop a live walk-in queue customers join from their phone. They see the wait, hold their spot, and get notified when they're up — shown on the window, the wall, and the mirror." />
+    <meta name="description" content="Join The Line gives your barbershop a live walk-in queue customers join from their phone. They see the wait, hold their spot, and get notified when they're up — shown on the window, the wall, and the mirror." />
     <link rel="canonical" href="https://vozlia.com/" />
-    <meta property="og:title" content="NextUp — The live walk-in queue for barbershops" />
+    <meta property="og:title" content="Join The Line — The live walk-in queue for barbershops" />
     <meta property="og:description" content="Stay in line without waiting in line. A live walk-in queue customers join from their phone — the wait, shown everywhere." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://vozlia.com/" />
@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="/vozlia-180.png" />
 
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"NextUp","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS, Android","description":"The live walk-in queue for barbershops — customers join from their phone, see the wait, and get notified when they're up.","publisher":{"@type":"Organization","name":"Vozlia LLC"}}
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Join The Line","alternateName":"NextUp","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS, Android","description":"The live walk-in queue for barbershops — customers join from their phone, see the wait, and get notified when they're up.","publisher":{"@type":"Organization","name":"Vozlia LLC"}}
     </script>
 
     <style>
@@ -30,7 +30,7 @@
         --serif:'Georgia','Times New Roman',serif;
         --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         --wrap:1160px;--grad:linear-gradient(120deg,#3b82f6,#6366f1 45%,#a855f7);
-        --green:#16a34a;--green-2:#22c55e;--green-deep:#065f46;--green-soft:#bbf7d0;--green-grad:linear-gradient(135deg,#15803d,#22c55e);
+        --royal:#1E40AF;--royal-2:#2563EB;--royal-lt:#60A5FA;--royal-soft:#93C5FD;--silver:#C0C0C0;--royal-grad:linear-gradient(135deg,#1E40AF,#2563EB);
       }
       *{box-sizing:border-box}
       html{scroll-behavior:smooth}
@@ -49,15 +49,15 @@
       /* block unit */
       .blk{display:inline-flex;align-items:center;justify-content:center;flex:none;width:var(--sz,80px);height:var(--sz,80px);border-radius:23%;background:var(--blue);box-shadow:0 8px 22px rgba(65,105,225,.28)}
       .blk>i{display:flex;align-items:center;justify-content:center;font-style:normal;width:76%;height:76%;border-radius:19%;background:var(--face);font-family:var(--serif);font-weight:bold;color:var(--blue);font-size:calc(var(--sz,80px)*.6);line-height:1;-webkit-text-stroke:calc(var(--sz,80px)*.028) var(--blue)}
-      .blk.green{background:#16a34a;box-shadow:0 8px 22px rgba(21,128,61,.28)}
-      .blk.green>i{background:#eafaf1;color:#16a34a;-webkit-text-stroke:calc(var(--sz,80px)*.028) #16a34a}
+      /* interim Join The Line app icon — single swappable element (final logo pending) */
+      .brand-icon{display:block;flex:none;width:38px;height:38px;border-radius:23%;box-shadow:0 8px 22px rgba(30,64,175,.35)}
 
       .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:12px;border:1px solid transparent;cursor:pointer;transition:.18s}
       .btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.2)}
       .btn-ghost:hover{background:rgba(255,255,255,.12)}
       .btn-lg{padding:15px 30px;font-size:16.5px}
-      .btn-nu{background:var(--green-grad);color:#fff;box-shadow:0 10px 26px rgba(21,128,61,.4)}
-      .btn-nu:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(21,128,61,.5)}
+      .btn-nu{background:var(--royal-grad);color:#fff;box-shadow:0 10px 26px rgba(37,99,235,.4)}
+      .btn-nu:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(37,99,235,.5)}
 
       /* ---------- NAV ---------- */
       .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
@@ -69,6 +69,8 @@
       .nav-links a:hover{color:#fff}
       .nav.solid{background:rgba(9,13,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
       @media(max-width:860px){.nav-links{display:none}}
+      .brand .word{white-space:nowrap}
+      @media(max-width:560px){.nav .wrap>.btn-nu{display:none}}
 
       /* ---------- HERO (full-bleed video) ---------- */
       .hero{position:relative;background:var(--ink);color:#fff;padding:0;min-height:88vh;display:flex;align-items:center;overflow:hidden}
@@ -79,8 +81,8 @@
         radial-gradient(120% 90% at 12% 50%,rgba(6,10,25,.35),transparent 60%)}
       .hero .wrap{position:relative;z-index:2;display:block;padding:118px 24px 88px}
       .hero .wrap>div{max-width:600px}
-      .hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.02em;color:#bbf7d0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:999px}
-      .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+      .hero-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--royal-soft);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:999px}
+      .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--royal-lt);box-shadow:0 0 10px var(--royal-lt)}
       .hero h1{font-size:clamp(34px,4.6vw,54px);margin:22px 0 0;letter-spacing:-.02em;color:#fff}
       .hero .lede{font-size:clamp(16px,1.5vw,18.5px);color:#c3cbe0;max-width:46ch;margin:14px 0 0;font-family:var(--sans)}
       .hero .lede-rotator{display:grid;margin:14px 0 0;max-width:46ch}
@@ -110,7 +112,7 @@
       section{padding:96px 0}
       .sec-head{max-width:64ch}
       .sec-head.center{margin:0 auto;text-align:center}
-      .kicker{font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-2)}
+      .kicker{font-family:var(--sans);font-weight:700;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--royal-lt)}
       .sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-top:14px}
       .sec-head p{color:var(--text-2);font-size:17.5px;margin-top:16px}
       /* connective tissue between story beats */
@@ -125,13 +127,13 @@
       /* ---------- STAT BAND ---------- */
       /* hero stat (the 51%) */
       .stat-hero{margin-top:8px;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:48px 40px;text-align:center;display:flex;flex-direction:column;align-items:center}
-      .stat-hero .huge{font-family:var(--serif);font-weight:bold;font-size:clamp(96px,17vw,190px);line-height:.9;color:var(--green-2)}
+      .stat-hero .huge{font-family:var(--serif);font-weight:bold;font-size:clamp(96px,17vw,190px);line-height:.9;color:var(--royal-lt)}
       .stat-hero .lbl{color:var(--text);font-size:clamp(17px,2.2vw,22px);margin-top:18px;max-width:30ch}
       .stat-hero .lbl strong{color:#fff}
       .stat-hero .src{color:var(--text-3);font-size:12px;margin-top:16px}
       .stats{display:grid;grid-template-columns:1fr;max-width:480px;gap:22px;margin:22px auto 0}
       .stat{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:34px 28px;text-align:center}
-      .stat .big{font-family:var(--serif);font-weight:bold;font-size:clamp(40px,5.4vw,58px);line-height:1;color:var(--green-2)}
+      .stat .big{font-family:var(--serif);font-weight:bold;font-size:clamp(40px,5.4vw,58px);line-height:1;color:var(--royal-lt)}
       .stat .lbl{color:var(--text-2);margin-top:16px;font-size:15.5px}
       .stat .src{color:var(--text-3);font-size:12px;margin-top:14px}
       .stats-concl{text-align:center;margin-top:40px;font-family:var(--serif);font-size:clamp(22px,3.2vw,34px);color:#fff}
@@ -147,7 +149,7 @@
       .how{display:grid;grid-template-columns:1fr;gap:14px;max-width:760px;margin:52px auto 0}
       .how-steps{display:grid;gap:14px}
       .how-step{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
-      .how-step .n{flex:none;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:11px;background:rgba(34,197,94,.14);color:#4ade80;font-family:var(--serif);font-weight:bold;font-size:18px}
+      .how-step .n{flex:none;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:11px;background:rgba(37,99,235,.18);color:var(--royal-soft);font-family:var(--serif);font-weight:bold;font-size:18px}
       .how-step h3{font-size:18.5px}
       .how-step p{color:var(--text-2);margin-top:6px;font-family:var(--sans);font-size:14.5px}
       @media(max-width:820px){.how{grid-template-columns:1fr;gap:30px}}
@@ -155,11 +157,11 @@
       /* ---------- SURFACE NETWORK ---------- */
       .surfaces{display:grid;grid-template-columns:1fr;max-width:560px;gap:22px;margin:52px auto 0}
       .surface{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s}
-      .surface:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(21,128,61,.16);border-color:rgba(134,239,172,.35)}
+      .surface:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(37,99,235,.16);border-color:rgba(147,197,253,.35)}
       .surface .shot{aspect-ratio:3/2;overflow:hidden;background:#0a0e1a}
       .surface .shot img{display:block;width:100%;height:100%;object-fit:cover}
       .surface .cap{padding:22px 24px}
-      .surface .cap .tag2{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#bbf7d0}
+      .surface .cap .tag2{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--silver)}
       .surface .cap h3{font-size:19px;margin-top:8px}
       .surface .cap p{color:var(--text-2);font-size:14.5px;margin-top:8px}
       @media(max-width:820px){.surfaces{grid-template-columns:1fr}}
@@ -167,24 +169,24 @@
       /* ---------- MERCHANT UPSIDE (hold the demand) ---------- */
       .leaks{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:820px;margin:40px auto 0}
       .leak{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px 26px;text-align:left}
-      .leak .tag2{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#bbf7d0}
+      .leak .tag2{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--silver)}
       .leak h3{font-size:20px;margin-top:10px}
       .leak p{color:var(--text-2);font-size:14.5px;margin-top:10px}
       @media(max-width:760px){.leaks{grid-template-columns:1fr}}
 
       /* ---------- STRATEGIC CLOSE ---------- */
-      .certainty{position:relative;overflow:hidden;background:linear-gradient(160deg,#0a140d,#08110b);border:1px solid rgba(34,197,94,.22);color:#fff;border-radius:28px;padding:40px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+      .certainty{position:relative;overflow:hidden;background:linear-gradient(160deg,#0b1124,#080c1a);border:1px solid rgba(37,99,235,.28);color:#fff;border-radius:28px;padding:40px;text-align:center;box-shadow:0 40px 90px rgba(0,0,0,.45)}
       .certainty-graphic{width:100%;height:auto;display:block;border-radius:16px;margin:6px 0 26px}
-      .certainty::before{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(134,239,172,.5),transparent 70%)}
-      .certainty .tag{position:relative;font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#bbf7d0}
+      .certainty::before{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(96,165,250,.45),transparent 70%)}
+      .certainty .tag{position:relative;font-family:var(--sans);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--royal-soft)}
       .certainty h2{position:relative;color:#fff;font-size:clamp(26px,3.6vw,40px);margin-top:14px}
-      .certainty .sub{position:relative;color:#d7f5e2;font-size:18px;margin:16px auto 0;max-width:60ch}
+      .certainty .sub{position:relative;color:#DBEAFE;font-size:18px;margin:16px auto 0;max-width:60ch}
       @media(max-width:600px){.certainty{padding:38px}.funnel .arr{display:none}}
 
       /* ---------- ALSO INCLUDED (demoted) ---------- */
       .also{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
       .aitem{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 20px;transition:.2s}
-      .aitem:hover{border-color:rgba(134,239,172,.3);transform:translateY(-3px)}
+      .aitem:hover{border-color:rgba(147,197,253,.3);transform:translateY(-3px)}
       .aitem .em{font-size:24px;line-height:1}
       .aitem h3{font-size:16px;margin-top:12px}
       .aitem p{color:var(--text-3);font-size:13.5px;margin-top:6px;font-family:var(--sans)}
@@ -199,13 +201,13 @@
 
       /* request */
       .request{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-      .request::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 0%,rgba(34,197,94,.34),transparent 60%)}
+      .request::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 0%,rgba(37,99,235,.34),transparent 60%)}
       .request .wrap{position:relative}
       .request .sec-head h2{color:#fff}.request .sec-head p{color:#c3cbe0}
       .form{max-width:500px;margin:38px auto 0;display:grid;gap:12px}
       .form input{padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);font-size:15px;font-family:inherit;color:#fff}
       .form input::placeholder{color:#93a2c4}
-      .form input:focus{outline:none;border-color:var(--green-2);background:rgba(255,255,255,.1)}
+      .form input:focus{outline:none;border-color:var(--royal-lt);background:rgba(255,255,255,.1)}
       .form .btn{margin-top:6px}
 
       /* footer */
@@ -227,9 +229,9 @@
     <!-- NAV -->
     <header class="nav" id="nav">
       <div class="wrap">
-        <a class="brand" href="/" aria-label="NextUp home">
-          <span class="blk green" style="--sz:38px"><i>N</i></span>
-          <span class="word">NextUp</span>
+        <a class="brand" href="/" aria-label="Join The Line home">
+          <img class="brand-icon" src="img/jtl-icon.png" width="38" height="38" alt="" />
+          <span class="word">Join The Line</span>
         </a>
         <nav class="nav-links">
           <a href="#how">How it works</a>
@@ -238,7 +240,7 @@
           <a href="#vozlia">Vozlia</a>
           <a href="/answers/">Answers</a>
         </nav>
-        <a class="btn btn-nu" href="#request">Get NextUp in your shop</a>
+        <a class="btn btn-nu" href="#request">Bring Join The Line to your shop</a>
       </div>
     </header>
 
@@ -257,7 +259,7 @@
             <p class="lede">See the wait. Hold your spot. Get notified when you're up.</p>
           </div>
           <div class="cta">
-            <a class="btn btn-nu btn-lg" href="#request">Get NextUp in your shop</a>
+            <a class="btn btn-nu btn-lg" href="#request">Bring Join The Line to your shop</a>
             <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
           </div>
           <p class="fine">No app. No phone call. · Live wait on the window, the wall, and the mirror.</p>
@@ -302,7 +304,7 @@
         </div>
 
         <!-- Beat 2: the live board answers, visually -->
-        <img class="reveal" src="img/wait-everywhere.webp" loading="lazy" style="width:100%;max-width:940px;height:auto;display:block;margin:34px auto 0;border-radius:18px;border:1px solid rgba(255,255,255,.1)" alt="The live wait, shown on the shop's surfaces: a storefront window sign reading 'Wait time 18 min' with a scan-to-join QR and the NextUp logo, and an in-shop wall display — 'Good haircuts. No hassle.' — showing the current walk-in queue (Mike R. 5 min, James T. 15 min, Darnell B. 25 min, Chris J. 35 min, Tyler G. 45 min) with a scan-to-join QR." />
+        <img class="reveal" src="img/wait-everywhere.webp" loading="lazy" style="width:100%;max-width:940px;height:auto;display:block;margin:34px auto 0;border-radius:18px;border:1px solid rgba(255,255,255,.1)" alt="The live wait, shown on the shop's surfaces: a storefront window sign reading 'Wait time 18 min' with a scan-to-join QR and the product logo, and an in-shop wall display — 'Good haircuts. No hassle.' — showing the current walk-in queue (Mike R. 5 min, James T. 15 min, Darnell B. 25 min, Chris J. 35 min, Tyler G. 45 min) with a scan-to-join QR." />
 
         <!-- Beat 3: the steps, sidewalk to chair -->
         <div class="how">
@@ -310,7 +312,7 @@
             <div class="how-step"><span class="n">1</span><div><h3>See the wait</h3><p>The live wait time is on the window before they even walk in — no guessing, no walking away.</p></div></div>
             <div class="how-step"><span class="n">2</span><div><h3>Hold your spot</h3><p>Check in from anywhere — scan the window code, tap a link, or text the shop. No app to download, no phone call to make.</p></div></div>
             <div class="how-step"><span class="n">3</span><div><h3>Go about your day</h3><p>No crowded lobby. Grab a coffee, run an errand — your spot is held while you wait wherever you want.</p></div></div>
-            <div class="how-step"><span class="n">4</span><div><h3>Get notified when you're up</h3><p>The barber calls them when the chair is actually freeing up — not on a guess. NextUp texts them to head back.</p></div></div>
+            <div class="how-step"><span class="n">4</span><div><h3>Get notified when you're up</h3><p>The barber calls them when the chair is actually freeing up — not on a guess. Join The Line texts them to head back.</p></div></div>
             <div class="how-step"><span class="n">5</span><div><h3>Get in the chair</h3><p>Their name comes up on the Lobby screen and at the barber's Station. The barber calls them; the chair keeps moving.</p></div></div>
           </div>
         </div>
@@ -321,7 +323,7 @@
 
         <div class="sec-head center reveal" style="margin-top:64px">
           <h2>Keep your appointments. Capture the walk-ins too.</h2>
-          <p>NextUp runs the live walk-in line alongside the schedule you already keep — so an open chair can still catch someone off the sidewalk, and a booked chair stays booked. You don't have to choose.</p>
+          <p>Join The Line runs the live walk-in line alongside the schedule you already keep — so an open chair can still catch someone off the sidewalk, and a booked chair stays booked. You don't have to choose.</p>
         </div>
       </div>
     </section>
@@ -332,9 +334,9 @@
         <div class="sec-head center reveal">
           <p class="kicker">At the chair</p>
           <h2>Built for hands that are busy cutting hair.</h2>
-          <p>Your barbers don't manage software. NextUp shows <strong>one clear action at a time</strong>, and it names the customer — <strong>“Start with Marcus,”</strong> then <strong>“Done — next is Andre.”</strong> The button changes with the chair, so there's nothing to learn. Skips and corrections stay in the app, out of the way.</p>
+          <p>Your barbers don't manage software. Join The Line shows <strong>one clear action at a time</strong>, and it names the customer — <strong>“Start with Marcus,”</strong> then <strong>“Done — next is Andre.”</strong> The button changes with the chair, so there's nothing to learn. Skips and corrections stay in the app, out of the way.</p>
         </div>
-        <img class="reveal" src="img/station.webp" loading="lazy" decoding="async" width="1535" height="1024" style="width:100%;max-width:940px;height:auto;display:block;margin:34px auto 0;border-radius:18px;border:1px solid rgba(255,255,255,.1)" alt="A barber mid-cut, clippers still in one hand, reaching over to tap a small NextUp touchscreen mounted on the wall beside a full barber mirror. The screen shows one large green DONE button with 'Next is Andre' beneath it." />
+        <img class="reveal" src="img/station.webp" loading="lazy" decoding="async" width="1535" height="1024" style="width:100%;max-width:940px;height:auto;display:block;margin:34px auto 0;border-radius:18px;border:1px solid rgba(255,255,255,.1)" alt="A barber mid-cut, clippers still in one hand, reaching over to tap a small touchscreen mounted on the wall beside a full barber mirror. The screen shows one large green DONE button with 'Next is Andre' beneath it." />
       </div>
     </section>
 
@@ -427,8 +429,8 @@
       <div class="wrap">
         <div class="certainty reveal">
           <p class="tag">The engine</p>
-          <img class="certainty-graphic" src="img/certainty.webp" loading="lazy" alt="We're selling certainty. NextUp gives every walk-in the answers before they walk in — Can you take me? Yes. How long? 8 minutes. Who's my barber? Marcus, Chair 3. The same live status on their phone and your storefront sign. Passerby to walk-in to first cut to relationship to repeat customer. Make the wait visible — turn the sidewalk into your front door." />
-          <p class="sub" style="font-size:clamp(17px,2.2vw,20px);color:#eafaf1;font-family:var(--serif)">Appointments solved certainty for scheduled customers. <b style="color:#fff">NextUp brings certainty to the walk-in.</b></p>
+          <img class="certainty-graphic" src="img/certainty.webp" loading="lazy" alt="We're selling certainty. The product gives every walk-in the answers before they walk in — Can you take me? Yes. How long? 8 minutes. Who's my barber? Marcus, Chair 3. The same live status on their phone and your storefront sign. Passerby to walk-in to first cut to relationship to repeat customer. Make the wait visible — turn the sidewalk into your front door." />
+          <p class="sub" style="font-size:clamp(17px,2.2vw,20px);color:#EFF6FF;font-family:var(--serif)">Appointments solved certainty for scheduled customers. <b style="color:#fff">Join The Line brings certainty to the walk-in.</b></p>
         </div>
       </div>
     </section>
@@ -455,7 +457,7 @@
       <div class="wrap">
         <div class="voz reveal">
           <span class="blk"><i>V</i></span>
-          <p>NextUp is made by <b>Vozlia</b>.</p>
+          <p>Join The Line (formerly NextUp) is made by <b>Vozlia</b>.</p>
         </div>
       </div>
     </section>
@@ -464,7 +466,7 @@
     <section id="request" class="request">
       <div class="wrap">
         <div class="sec-head center reveal">
-          <p class="kicker" style="color:#86efac">Get NextUp in your shop</p>
+          <p class="kicker" style="color:var(--royal-soft)">Bring Join The Line to your shop</p>
           <h2>Tell us about your shop.</h2>
           <p>We're rolling out by area. Drop your info and we'll reach out the moment we open access near you.</p>
         </div>
@@ -477,9 +479,9 @@
           <input name="phone" type="tel" placeholder="Best phone to reach you" required />
           <input name="email" type="email" placeholder="Email" required />
           <input name="source" type="text" placeholder="How did you hear about us? (optional)" />
-          <button type="submit" class="btn btn-nu btn-lg">Get NextUp in your shop</button>
+          <button type="submit" class="btn btn-nu btn-lg">Bring Join The Line to your shop</button>
         </form>
-        <p class="reveal" style="text-align:center;margin:18px 0 0;color:var(--text-2)">Ready to start now? <a href="https://portal.vozlia.com/start" style="color:#86efac;text-decoration:underline">Set up your shop yourself</a></p>
+        <p class="reveal" style="text-align:center;margin:18px 0 0;color:var(--text-2)">Ready to start now? <a href="https://portal.vozlia.com/start" style="color:var(--royal-soft);text-decoration:underline">Set up your shop yourself</a></p>
       </div>
     </section>
 
@@ -492,13 +494,13 @@
               <span class="blk" style="--sz:34px"><i>V</i></span>
               <span class="word">Vozlia</span>
             </a>
-            <p>NextUp — the live walk-in queue for barbershops. Made by Vozlia.</p>
+            <p>Join The Line — the live walk-in queue for barbershops. Made by Vozlia.</p>
           </div>
-          <div class="foot-col"><h4>NextUp</h4><ul>
+          <div class="foot-col"><h4>Join The Line</h4><ul>
             <li><a href="#how">How it works</a></li><li><a href="#surfaces">The wait, everywhere</a></li><li><a href="#also">Also included</a></li><li><a href="#vozlia">Vozlia</a></li><li><a href="/answers/">Answers</a></li>
           </ul></div>
           <div class="foot-col"><h4>Company</h4><ul>
-            <li><a href="#request">Get NextUp in your shop</a></li><li><a href="https://portal.vozlia.com">Operator portal</a></li><li><a href="mailto:hello@vozlia.com">Contact</a></li>
+            <li><a href="#request">Bring Join The Line to your shop</a></li><li><a href="https://portal.vozlia.com">Operator portal</a></li><li><a href="mailto:hello@vozlia.com">Contact</a></li>
           </ul></div>
           <div class="foot-col"><h4>Legal</h4><ul>
             <li><a href="https://portal.vozlia.com/legal/privacy">Privacy</a></li><li><a href="https://portal.vozlia.com/legal/terms">Terms</a></li><li><a href="/privacy.html">Privacy (legacy)</a></li>
