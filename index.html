@@ -529,7 +529,7 @@
         var mq=matchMedia('(max-aspect-ratio: 4/5)'), cur=null;
         function pick(){ var p=mq.matches; if(p===cur)return; cur=p;
           v.poster=p?'hero-portrait-poster.jpg':'hero-poster.jpg';
-          v.src=p?'hero-portrait.mp4':'hero.mp4'; v.load(); v.play().catch(function(){});
+          v.src=p?'hero-portrait.mp4?v=jtl1':'hero.mp4?v=jtl1'; v.load(); v.play().catch(function(){});
         }
         pick();
         if(mq.addEventListener) mq.addEventListener('change', pick); else if(mq.addListener) mq.addListener(pick);
