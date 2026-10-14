@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Street team · Join The Line by Vozlia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Pilot: reached only from the ad. Kept out of search and sitemap.xml, no footer link (spec §4.8). -->
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="Visit NYC barbershops, show the owner a one-minute demo of Join The Line, and book them a time to talk with us. Paid per verified visit." />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/vozlia-icon.svg" />
+    <style>
+      :root{
+        --bg:#0a0e1a;--surface:#121a2f;--line:#1e2942;
+        --text:#e9eefc;--text-2:#aab6d4;--text-3:#8493b4;
+        --royal:#1E40AF;--royal-2:#2563EB;--royal-lt:#60A5FA;--royal-soft:#93C5FD;
+        --royal-grad:linear-gradient(135deg,#1E40AF,#2563EB);
+        --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+      }
+      *{box-sizing:border-box}
+      body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+      main{max-width:620px;margin:0 auto;padding:24px 16px 48px}
+      a{color:var(--royal-soft)}
+      .brand{font-weight:700;letter-spacing:.2px;color:var(--text);text-decoration:none;font-size:15px}
+      .brand span{color:var(--text-3);font-weight:500}
+      header{padding:4px 0 16px}
+      .player{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--line)}
+      .player video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000}
+      .note{color:var(--text-3);font-size:14px;margin:8px 0 0}
+      h1{font-size:30px;line-height:1.2;margin:28px 0 12px}
+      h2{font-size:22px;line-height:1.25;margin:40px 0 10px}
+      p{margin:0 0 14px;color:var(--text-2);font-size:17px}
+      ul{margin:0 0 14px;padding-left:22px;color:var(--text-2);font-size:17px}
+      li{margin:0 0 8px}
+      li strong{color:var(--text)}
+      .trust{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15.5px;color:var(--text)}
+      .pay li{color:var(--text)}
+      .sub{font-size:15px;color:var(--text-3)}
+      .tip{border-left:3px solid var(--royal-lt);padding:4px 0 4px 12px;color:var(--text);font-size:15.5px}
+      form{display:grid;gap:14px;margin-top:8px}
+      label{display:grid;gap:6px;font-size:15px;color:var(--text);font-weight:600}
+      label .opt{color:var(--text-3);font-weight:400}
+      input[type=text],input[type=tel],input[type=email],select{width:100%;min-height:48px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);font-size:16px;font-family:inherit;color:#fff}
+      select option{color:#000}
+      input::placeholder{color:#93a2c4}
+      input:focus,select:focus{outline:none;border-color:var(--royal-lt);background:rgba(255,255,255,.1)}
+      fieldset{border:0;margin:0;padding:0}
+      legend{font-size:15px;font-weight:600;color:var(--text);padding:0;margin-bottom:8px}
+      .days{display:flex;flex-wrap:wrap;gap:8px}
+      .days label{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);font-weight:500;cursor:pointer}
+      .days input{width:18px;height:18px;accent-color:var(--royal-2);margin:0}
+      button{min-height:52px;border:0;border-radius:12px;background:var(--royal-grad);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
+      button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--royal-lt);outline-offset:2px}
+      .consent{font-size:13.5px;color:var(--text-3);margin:0}
+      .clips{display:grid;gap:10px}
+      details.clip{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+      details.clip>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 16px;font-weight:600;min-height:48px}
+      details.clip>summary::-webkit-details-marker{display:none}
+      details.clip>summary .len{color:var(--text-3);font-weight:500;font-size:14px;white-space:nowrap}
+      details.clip>summary::after{content:"▸";color:var(--royal-lt);margin-left:4px}
+      details.clip[open]>summary::after{content:"▾"}
+      .clip-body{padding:0 16px 16px}
+      details.transcript{margin-top:10px}
+      details.transcript summary{cursor:pointer;color:var(--royal-soft);font-size:15px}
+      details.transcript p{font-size:15px;margin:8px 0 0}
+      footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text-3);display:flex;flex-wrap:wrap;gap:6px 16px}
+      footer a{color:var(--text-3)}
+      @media (min-width:640px){h1{font-size:36px}main{padding-top:32px}}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header><a class="brand" href="/">Join The Line <span>by Vozlia</span></a></header>
+
+      <div class="player">
+        <video controls playsinline preload="metadata" poster="https://customers.vozlia.com/media/jtl-promo-poster-v1.jpg">
+          <source src="https://customers.vozlia.com/media/jtl-promo-v1.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <p class="note">Optional: a one-minute look at what you'd be showing shops.</p>
+
+      <h1>Get paid to show NYC barbershops Join The Line</h1>
+      <p>Join The Line lets clients join a barbershop's walk-in line from the window sign, Google or Yelp, wait wherever they like, and get a text when they're up. We're looking for people in New York City to visit shops, show the owner a one-minute demo, and book them a time to talk with us.</p>
+      <ul>
+        <li>Visit barbershops in the neighborhoods you pick.</li>
+        <li>Show a one-minute demo on your phone.</li>
+        <li><strong>Your goal on every visit: book the owner a time to talk with us.</strong> We call them then, answer their questions and help them get set up.</li>
+        <li>After each visit, send us a short visit report (below).</li>
+        <li>Set your own hours. In person in NYC; training is online.</li>
+        <li>Independent contractor. Paid visits start after you're approved and trained.</li>
+      </ul>
+      <p class="trust">Applying is free. We'll never ask you for money, and this form never asks for your Social Security number or bank details.</p>
+
+      <h2>What you earn</h2>
+      <ul class="pay">
+        <li>$20 for each shop visit we verify, whether or not the owner signs up.</li>
+        <li>$50 bonus when that shop becomes a paying customer, paid after its first paid month.</li>
+        <li>One paid visit per shop. If another rep already visited a shop, a second visit isn't paid.</li>
+        <li>Paid within 24 hours of your visit, once we've checked your visit report.</li>
+      </ul>
+
+      <h2>Your visit report: what we need from every visit</h2>
+      <p>After each visit, text or WhatsApp us your report at <a href="sms:+17325883540">(732) 588-3540</a> (<a href="https://wa.me/17325883540">WhatsApp</a>). We check every item before we pay, so please answer them all.</p>
+      <ul>
+        <li>Photos of the outside and the inside of the shop.</li>
+        <li>The shop's name.</li>
+        <li>The shop's WhatsApp, Instagram and Facebook page.</li>
+        <li>The name of the person you talked to.</li>
+        <li>Do the barbers rent their chairs (booth rental) or work on commission?</li>
+        <li>Where the shop advertises.</li>
+        <li>The owner's name and contact details, if you know them.</li>
+        <li>Which barbershop apps they use (for example Booksy, Squire or Square).</li>
+        <li>How many chairs the shop has.</li>
+        <li>Did you book a time for the owner to talk with us? If yes: the day, the time, and who we'll be talking to.</li>
+        <li>If you didn't book a time: can we come back in 6 months?</li>
+      </ul>
+      <p class="tip">Ask before you take photos inside, and keep customers' faces out of the shot.</p>
+
+      <h2 id="apply">Apply</h2>
+      <form action="https://portal.vozlia.com/api/public/street-team-applications" method="post">
+        <!-- Honeypot: hidden from people, so only a bot fills it. Keep the name "website". -->
+        <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label>Website <input name="website" type="text" tabindex="-1" autocomplete="off" value="" /></label></div>
+        <label>Nickname or first name
+          <input name="name" type="text" maxlength="60" autocomplete="given-name" required />
+        </label>
+        <label>Mobile number
+          <input name="phone" type="tel" maxlength="40" autocomplete="tel" inputmode="tel" required />
+        </label>
+        <label>Email
+          <input name="email" type="email" maxlength="254" autocomplete="email" required />
+        </label>
+        <label>Neighborhoods you'd cover
+          <input name="neighborhoods" type="text" maxlength="200" placeholder="e.g. Harlem, Bed-Stuy" required />
+        </label>
+        <fieldset>
+          <legend>Days you're available <span class="sub">(optional)</span></legend>
+          <div class="days">
+            <label><input type="checkbox" name="days" value="mon" />Mon</label>
+            <label><input type="checkbox" name="days" value="tue" />Tue</label>
+            <label><input type="checkbox" name="days" value="wed" />Wed</label>
+            <label><input type="checkbox" name="days" value="thu" />Thu</label>
+            <label><input type="checkbox" name="days" value="fri" />Fri</label>
+            <label><input type="checkbox" name="days" value="sat" />Sat</label>
+            <label><input type="checkbox" name="days" value="sun" />Sun</label>
+          </div>
+        </fieldset>
+        <label><span>Where did you see this? <span class="opt">(optional)</span></span>
+          <select name="heard_from">
+            <option value="">Choose one</option>
+            <option value="craigslist">Craigslist</option>
+            <option value="friend">A friend</option>
+            <option value="instagram">Instagram</option>
+            <option value="other">Somewhere else</option>
+          </select>
+        </label>
+        <button type="submit">Apply</button>
+        <p class="consent">By applying, you agree that Vozlia may text or email you about your application. Message and data rates may apply. Reply STOP to opt out.</p>
+      </form>
+
+      <h2 id="pitch">Learn the pitch (optional)</h2>
+      <p>Watching is optional. You don't need to watch these to apply.</p>
+      <div class="clips">
+        <details class="clip">
+          <summary>1. Walk-in line vs appointments <span class="len">37 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-1-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-1-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>Your clients don't want an appointment. They want to know how long the wait is. Appointments lock everyone into a time slot. Miss it, and someone loses. With Join The Line, running late is no big deal. One tap moves a client to the back of the line, and you take the next person. Clients join from your window sign, Google, or Yelp, wait wherever they like, and get a text when they're up. No crowded lobby. No watching the clock. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+        <details class="clip">
+          <summary>2. A waiting room in their pocket <span class="len">31 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-2-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-2-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>No room for a waiting area? In a salon suite, there's no lobby, so you rely on appointments. Join The Line gives you a virtual lobby. Clients join from their phone, see their place in line, and wait wherever they like. When they're up, they get a text. Now even a salon suite can take walk-ins. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+        <details class="clip">
+          <summary>3. You run the line <span class="len">29 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-3-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-3-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>Ever needed a break, with the bench still full? With Join The Line, the line runs on your schedule. Clock in, and walk-ins open. Clients can join, and your sign shows the wait. Step out, or call it a day, and new joins stop. Take your break; the line waits for you. Closing early? Pause walk-ins with one switch. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+        <details class="clip">
+          <summary>4. Running late isn't a disaster <span class="len">33 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-4-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-4-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>Appointments don't forgive. One late client, or a late start, and every booking after it backs up. A line just keeps moving. Client running late? Send them to the back. They stay in line, get a text with their new spot, and you take the next person. Running behind yourself? Tap Back later, and the line stops taking new joins for half an hour. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+        <details class="clip">
+          <summary>5. What the big chains already know <span class="len">34 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-5-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-5-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>Every client who sees a full bench and walks away is a cut you lost. The biggest salon chains never made customers book. Great Clips launched online check-in in 2011. Customers add their name from their phone and show up when it's almost their turn. Great Clips calls its customer technology, like online check-in, a key success driver. (Source: Great Clips, Inc., March 2018.) Now your shop can offer the same convenience, with the barber your clients came for. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+        <details class="clip">
+          <summary>6. Keep the clients who'd walk away <span class="len">47 s</span></summary>
+          <div class="clip-body">
+            <div class="player"><video controls playsinline preload="none" poster="https://customers.vozlia.com/media/jtl-explainer-6-poster-v1.jpg"><source src="https://customers.vozlia.com/media/jtl-explainer-6-v1.mp4" type="video/mp4" /></video></div>
+            <details class="transcript"><summary>Read the transcript</summary>
+              <p>For a lot of shops, the chairs aren't as full as they used to be. Casual looks are in, and lots of guys trim at home. Haircuts cost about a third more than in 2020 (source: BLS consumer price index, personal care services), so barbers tell us regulars who came every two weeks now come every three or four. And when a busy client sees a full bench, he doesn't wait. He drives down the street. Join The Line turns that walk-away into a place in line. Clients join from your sign, Google, or Yelp, and wait wherever they like. Every shop has rush times: Friday afternoons, Saturdays, the days before a holiday. That's when the line keeps the clients who'd never have waited. More of the rush stays yours. Join The Line. Stay in line, without waiting in line.</p>
+            </details>
+          </div>
+        </details>
+      </div>
+
+      <footer>
+        <span>Powered by Vozlia</span>
+        <a href="https://portal.vozlia.com/legal/privacy">Privacy</a>
+        <a href="https://portal.vozlia.com/legal/terms">Terms</a>
+      </footer>
+    </main>
+  </body>
+</html>
