@@ -42,13 +42,8 @@
       input[type=text],input[type=tel],input[type=email]{width:100%;min-height:48px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);font-size:16px;font-family:inherit;color:#fff}
       input::placeholder{color:#93a2c4}
       input:focus{outline:none;border-color:var(--royal-lt);background:rgba(255,255,255,.1)}
-      fieldset{border:0;margin:0;padding:0;min-width:0}
-      legend{font-size:15px;font-weight:600;color:var(--text);padding:0;margin-bottom:4px}
-      .choices{display:grid;gap:10px;margin-top:6px}
-      .choices label,.check{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);font-weight:500;cursor:pointer}
-      .choices label:has(input:checked){border-color:var(--royal-lt);background:rgba(37,99,235,.14)}
-      .choices strong{display:block;font-weight:700}
-      .choices input,.check input{width:20px;height:20px;accent-color:var(--royal-2);margin:2px 0 0;flex:none}
+      .check{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);font-weight:500;cursor:pointer}
+      .check input{width:20px;height:20px;accent-color:var(--royal-2);margin:2px 0 0;flex:none}
       button{min-height:52px;border:0;border-radius:12px;background:var(--royal-grad);color:#fff;font-size:17px;font-weight:700;font-family:inherit;cursor:pointer}
       button:focus-visible,a:focus-visible{outline:2px solid var(--royal-lt);outline-offset:2px}
       .consent{font-size:13.5px;color:var(--text-3);margin:0}
@@ -62,7 +57,7 @@
       <header><a class="brand" href="/">Join The Line <span>by Vozlia</span></a></header>
 
       <h1>Bring your barbershop to Join The Line. Get paid for it.</h1>
-      <!-- MONEY COPY (tentative) --><p>Next time you're in for a cut, show your barber Join The Line and ask if they'd like to try it free. Their shop gets a 14-day free trial and 20% off through you, and you get paid: $200 per shop, or 20% of what the shop pays for up to 2 years.</p><!-- /MONEY COPY -->
+      <!-- MONEY COPY (tentative) --><p>Next time you're in for a cut, show your barber Join The Line and ask if they'd like to try it free. Their shop gets a 14-day free trial and 20% off through you, and you get paid $200 per shop.</p><!-- /MONEY COPY -->
 
       <div class="player">
         <video controls playsinline preload="metadata" poster="https://customers.vozlia.com/media/jtl-promo-poster-v1.jpg">
@@ -99,16 +94,10 @@
         <label>Shop address (street and neighborhood)
           <input name="shop_address" type="text" maxlength="160" autocomplete="off" placeholder="123 Lenox Ave, Harlem" required />
         </label>
-        <fieldset>
-          <legend>How do you want to get paid?</legend>
-          <p class="sub">Pick one. You choose once, when you sign up.</p>
-          <div class="choices">
-            <!-- MONEY COPY (tentative) -->
-            <label><input type="radio" name="payout_choice" value="flat" required /><span><strong>$200 flat</strong><span>$50 a month for the shop's first 4 monthly payments.</span></span></label>
-            <label><input type="radio" name="payout_choice" value="percent" required /><span><strong>20% for 2 years</strong><span>20% of what the shop pays each month, for up to 2 years: about $10 a month ($240) on the $50 plan, or $20 a month ($480) plus a $100 bonus on the AI plan.</span></span></label>
-            <!-- /MONEY COPY -->
-          </div>
-        </fieldset>
+        <!-- One payout for now (operator 2026-10-16: no percentage offer on this page). The hidden field keeps the portal's
+             payout_choice check satisfied. -->
+        <input type="hidden" name="payout_choice" value="flat" />
+        <!-- MONEY COPY (tentative) --><p class="sub">You get $200 per shop: $50 a month for the shop's first 4 monthly payments.</p><!-- /MONEY COPY -->
         <label class="check"><input type="checkbox" name="disclosure" value="yes" required /><span>I'll tell the owner I get paid if they sign up.</span></label>
         <button type="submit">Sign me up</button>
         <p class="consent">By signing up, you agree that Vozlia may text or email you about the referral program. Message and data rates may apply. Reply STOP to opt out.</p>
@@ -118,9 +107,7 @@
       <!-- MONEY COPY (tentative) -->
       <ul class="pay">
         <li>The shop gets a 14-day free trial (no card), then 20% off for as long as it stays.</li>
-        <li>You get paid the way you picked when you signed up.</li>
-        <li>$200 flat: $50 each month the shop pays, for its first 4 months.</li>
-        <li>20% for 2 years: 20% of what the shop pays each month, for up to 2 years: about $10 a month on the $50 plan, or $20 a month plus a $100 bonus (paid at the shop's first payment) on the AI plan.</li>
+        <li>You get $200 per shop: $50 each month the shop pays, for its first 4 months.</li>
         <li>Your first payment is handed to you in person. After that, we pay by Zelle once a month, so you'll need a bank account with Zelle.</li>
       </ul>
       <!-- /MONEY COPY -->
