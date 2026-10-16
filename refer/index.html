@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Pilot: reached only from links we hand out. Kept out of search and sitemap.xml, no footer link (same as /streetteam). -->
     <meta name="robots" content="noindex, nofollow" />
+    <!-- Money wording is tentative (operator 2026-10-16) and plain HTML in three spots, each wrapped in
+         MONEY COPY (tentative) ... /MONEY COPY comments: grep "MONEY COPY" to find them all. -->
     <meta name="description" content="Bring your barbershop to Join The Line. Get paid for it." />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/vozlia-icon.svg" />
@@ -60,7 +62,7 @@
       <header><a class="brand" href="/">Join The Line <span>by Vozlia</span></a></header>
 
       <h1>Bring your barbershop to Join The Line. Get paid for it.</h1>
-      <p data-money="offer"></p>
+      <!-- MONEY COPY (tentative) --><p>Next time you're in for a cut, show your barber Join The Line and ask if they'd like to try it free. Their shop gets a 14-day free trial and 20% off through you, and you get paid.</p><!-- /MONEY COPY -->
 
       <div class="player">
         <video controls playsinline preload="metadata" poster="https://customers.vozlia.com/media/jtl-promo-poster-v1.jpg">
@@ -99,10 +101,12 @@
         </label>
         <fieldset>
           <legend>How do you want to get paid?</legend>
-          <p class="sub" data-money="pick"></p>
+          <p class="sub">Pick one. You choose once, when you sign up.</p>
           <div class="choices">
-            <label><input type="radio" name="payout_choice" value="flat" required /><span><strong data-money="flatTitle"></strong><span data-money="flat"></span></span></label>
-            <label><input type="radio" name="payout_choice" value="percent" required /><span><strong data-money="percentTitle"></strong><span data-money="percent"></span></span></label>
+            <!-- MONEY COPY (tentative) -->
+            <label><input type="radio" name="payout_choice" value="flat" required /><span><strong>Flat amount</strong><span>$50 for every barber at the shop (up to 4), plus $100 more if the shop adds the AI receptionist: up to $300 per shop. Half when the shop makes its first payment, half at its second.</span></span></label>
+            <label><input type="radio" name="payout_choice" value="percent" required /><span><strong>Percent</strong><span>10% of everything the shop pays us, for as long as it stays a customer.</span></span></label>
+            <!-- /MONEY COPY -->
           </div>
         </fieldset>
         <label class="check"><input type="checkbox" name="disclosure" value="yes" required /><span>I'll tell the owner I get paid if they sign up.</span></label>
@@ -111,7 +115,15 @@
       </form>
 
       <h2>How you get paid</h2>
-      <ul class="pay" data-money="how"></ul>
+      <!-- MONEY COPY (tentative) -->
+      <ul class="pay">
+        <li>The shop gets a 14-day free trial (no card), then 20% off for as long as it stays.</li>
+        <li>You get paid the way you picked when you signed up.</li>
+        <li>Flat amount: $50 for every barber at the shop (up to 4), plus $100 more if the shop adds the AI receptionist: up to $300 per shop. Half when the shop makes its first payment, half at its second.</li>
+        <li>Percent: 10% of everything the shop pays us, for as long as it stays a customer.</li>
+        <li>We pay once a month.</li>
+      </ul>
+      <!-- /MONEY COPY -->
 
       <h2>Want to earn more?</h2>
       <p><a href="/streetteam/">Join our street team</a>: visit NYC barbershops, show the owner a one-minute demo, and book them a time to talk with us.</p>
@@ -136,38 +148,6 @@
         <a href="https://portal.vozlia.com/legal/terms">Terms</a>
       </footer>
     </main>
-
-    <!-- MONEY COPY (tentative, operator 2026-10-16): edit here only.
-         Every money line on this page (the offer under the headline, both payout choices
-         in the form, and "How you get paid") is filled from MONEY below. -->
-    <script>
-      var FLAT = "$50 for every barber at the shop (up to 4), plus $100 more if the shop adds the AI receptionist: up to $300 per shop. Half when the shop makes its first payment, half at its second.";
-      var PERCENT = "10% of everything the shop pays us, for as long as it stays a customer.";
-      var MONEY = {
-        offer: "Next time you're in for a cut, show your barber Join The Line and ask if they'd like to try it free. Their shop gets a 14-day free trial and 20% off through you, and you get paid.",
-        pick: "Pick one. You choose once, when you sign up.",
-        flatTitle: "Flat amount",
-        flat: FLAT,
-        percentTitle: "Percent",
-        percent: PERCENT,
-        how: [
-          "The shop gets a 14-day free trial (no card), then 20% off for as long as it stays.",
-          "You get paid the way you picked when you signed up.",
-          "Flat amount: " + FLAT,
-          "Percent: " + PERCENT,
-          "We pay you once a month, by hand."
-        ]
-      };
-      document.querySelectorAll("[data-money]").forEach(function (el) {
-        var v = MONEY[el.getAttribute("data-money")];
-        if (Array.isArray(v)) {
-          v.forEach(function (t) { var li = document.createElement("li"); li.textContent = t; el.appendChild(li); });
-        } else {
-          el.textContent = v;
-        }
-      });
-    </script>
-    <!-- /MONEY COPY -->
 
     <script>
       // ?src= says where the visitor came from (a flyer, a link). Only short lowercase slugs are kept.
