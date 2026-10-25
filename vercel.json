@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/line", "destination": "https://portal.vozlia.com/line", "permanent": false },
+    { "source": "/line/:path*", "destination": "https://portal.vozlia.com/line/:path*", "permanent": false }
+  ]
+}
